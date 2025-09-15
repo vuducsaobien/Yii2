@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  yii2-app:
+    build: .
+    container_name: yii2-learning
+    ports:
+      - "8080:80"
+      - "3306:3306"
+    volumes:
+      - ./yii2-app:/var/www/html/yii2-app
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=yii2db
+      - MYSQL_USER=yii2user
+      - MYSQL_PASSWORD=yii2pass
+    restart: unless-stopped
+
+volumes:
+  mysql_data:

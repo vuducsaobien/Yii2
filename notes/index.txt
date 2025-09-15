@@ -1,0 +1,9 @@
+- docker compose build
+docker compose up -d
+
+DBeaver: Mysql:
+Connected by Host
+    Server host: localhost Port: 3306
+    Database: yii2db
+    Username: yii2user
+    Pass: yii2pass
