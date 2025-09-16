@@ -15,4 +15,6 @@ Connected by Host
 - php yii migrate/create create_table_1_table
 - php yii migrate
 
-API: Get http://localhost:8000/index.php?r=user/index
+API: Get http://localhost:8000/index.php?r=user/index => http://localhost:8000/user/index (UserController, actionIndex)
+thì phải dùng Pretty URL
+https://www.yiiframework.com/doc/guide/2.0/en/runtime-routing
