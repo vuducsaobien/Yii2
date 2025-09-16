@@ -1,3 +1,4 @@
+- Yii2
 - docker compose build
 docker compose up -d
 
@@ -7,3 +8,11 @@ Connected by Host
     Database: yii2db
     Username: yii2user
     Pass: yii2pass
+
+- docker ps
+- docker exec -it yii2-learning bash
+- cd yii2-app
+- php yii migrate/create create_table_1_table
+- php yii migrate
+
+API: Get http://localhost:8000/index.php?r=user/index
