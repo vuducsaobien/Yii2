@@ -18,3 +18,7 @@ Connected by Host
 API: Get http://localhost:8000/index.php?r=user/index => http://localhost:8000/user/index (UserController, actionIndex)
 thì phải dùng Pretty URL
 https://www.yiiframework.com/doc/guide/2.0/en/runtime-routing
+
+Truy cập http://localhost:8080/debug để xem tất cả câu query
+Mỗi lần chạy 1 API , sẽ sinh ra 1 record ở trang này.
+Ở file runtime/debug/   *.data
