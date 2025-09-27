@@ -50,6 +50,10 @@ $config = [
             ],
         ],
         //
+        'response' => [
+            'class' => 'yii\web\Response',
+            'format' => \yii\web\Response::FORMAT_JSON,
+        ],
     ],
     'params' => $params,
 ];
