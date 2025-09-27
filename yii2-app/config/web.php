@@ -42,6 +42,10 @@ $config = [
             ],
         ],
         'db' => $db,
+        // Register CustomerService in DI container
+        'customerService' => [
+            'class' => 'app\services\CustomerService',
+        ],
         //
         'urlManager' => [
             'enablePrettyUrl' => true,
