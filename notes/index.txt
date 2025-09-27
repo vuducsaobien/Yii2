@@ -22,3 +22,9 @@ https://www.yiiframework.com/doc/guide/2.0/en/runtime-routing
 Truy cập http://localhost:8080/debug để xem tất cả câu query
 Mỗi lần chạy 1 API , sẽ sinh ra 1 record ở trang này.
 Ở file runtime/debug/   *.data
+
+Dump Database file Dbeaver:
+    - Du,p db mysqldump (Nhiều khi DBeaver không hỗ trợ đâu)
+    - docker exec -it yii2-learning bash
+    - cd yii2-app/
+    - mysqldump -u root -proot yii2db > database_dump_27_09_25.sql
