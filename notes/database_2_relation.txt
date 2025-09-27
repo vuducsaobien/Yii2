@@ -1,0 +1,6 @@
+- hasOne
+    Một Customer chỉ có tối đa 1 Country đi kèm
+    Nên table Customer đặt country_id để đảm bảo mỗi 1 Customer chỉ có duy nhất 1 Country
+
+    - Nếu table Country đặt customer_id thì dẫn tới việc 1 Country chỉ thuộc về 1 Customer
+    (Không đúng logic, vì 2 Customer có thể thuộc về 1 Country)

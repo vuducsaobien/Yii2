@@ -1,1 +1,12 @@
 https://www.yiiframework.com/doc/guide/2.0/en/db-active-record
+
+https://www.yiiframework.com/doc/guide/2.0/en/structure-models
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+https://www.yiiframework.com/doc/api/2.0/yii-filters-cors
+
+https://www.yiiframework.com/doc/guide/2.0/en/db-dao
+https://www.yiiframework.com/doc/guide/2.0/en/db-active-record
+
+
+https://www.yiiframework.com/doc/api/2.0/yii-db-baseactiverecord#hasOne()-detail
