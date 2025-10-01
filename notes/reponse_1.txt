@@ -1,0 +1,146 @@
+{
+    "result": {
+        "status": "OK",
+        "data": [
+            {
+                "id": 1,
+                "name": "Customer 1",
+                "email": "1@gmail.com",
+                "country_id": 1,
+                "created_at": "2025-09-26 10:14:05",
+                "updated_at": "2025-10-01 13:57:16",
+                "country_infor": {
+                    "id": 1,
+                    "name": "Viet Nam",
+                    "code": "vn",
+                    "created_at": "2025-09-26 10:12:05",
+                    "updated_at": "2025-09-26 10:12:05"
+                },
+                "orders": [
+                    {
+                        "id": 1,
+                        "customer_id": 1,
+                        "order_number": "A1",
+                        "total_amount": "2.00",
+                        "status": "pending",
+                        "order_date": "2025-09-29",
+                        "created_at": "2025-09-29 16:32:44",
+                        "updated_at": "2025-09-29 16:32:44"
+                    },
+                    {
+                        "id": 2,
+                        "customer_id": 1,
+                        "order_number": "A2",
+                        "total_amount": "3.00",
+                        "status": "pending",
+                        "order_date": "2025-09-28",
+                        "created_at": "2025-09-29 16:33:04",
+                        "updated_at": "2025-09-29 16:33:04"
+                    },
+                    {
+                        "id": 3,
+                        "customer_id": 1,
+                        "order_number": "A3",
+                        "total_amount": "2.00",
+                        "status": "order",
+                        "order_date": "2025-09-29",
+                        "created_at": "2025-09-29 16:32:44",
+                        "updated_at": "2025-09-29 16:32:44"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Customer 2",
+                "email": "2@gmail.com",
+                "country_id": 1,
+                "created_at": "2025-09-26 10:14:05",
+                "updated_at": "2025-10-01 13:57:16",
+                "country_infor": {
+                    "id": 1,
+                    "name": "Viet Nam",
+                    "code": "vn",
+                    "created_at": "2025-09-26 10:12:05",
+                    "updated_at": "2025-09-26 10:12:05"
+                },
+                "orders": [
+                    {
+                        "id": 4,
+                        "customer_id": 2,
+                        "order_number": "A4",
+                        "total_amount": "3.00",
+                        "status": "active",
+                        "order_date": "2025-09-28",
+                        "created_at": "2025-09-29 16:33:04",
+                        "updated_at": "2025-10-01 13:58:00"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Customer 3",
+                "email": "3@gmail.com",
+                "country_id": 1,
+                "created_at": "2025-09-26 10:14:35",
+                "updated_at": "2025-10-01 13:57:16",
+                "country_infor": {
+                    "id": 1,
+                    "name": "Viet Nam",
+                    "code": "vn",
+                    "created_at": "2025-09-26 10:12:05",
+                    "updated_at": "2025-09-26 10:12:05"
+                },
+                "orders": [
+                    {
+                        "id": 5,
+                        "customer_id": 3,
+                        "order_number": "A5",
+                        "total_amount": "1.00",
+                        "status": "inactive",
+                        "order_date": "2025-09-28",
+                        "created_at": "2025-09-29 16:33:04",
+                        "updated_at": "2025-10-01 13:58:00"
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "name": "Customer 4",
+                "email": "4@gmail.com",
+                "country_id": 2,
+                "created_at": "2025-09-26 10:14:35",
+                "updated_at": "2025-10-01 13:57:16",
+                "country_infor": {
+                    "id": 2,
+                    "name": "China",
+                    "code": "china",
+                    "created_at": "2025-09-26 10:12:05",
+                    "updated_at": "2025-09-26 10:12:05"
+                },
+                "orders": []
+            },
+            {
+                "id": 5,
+                "name": "Customer 5",
+                "email": "5@gmail.com",
+                "country_id": 3,
+                "created_at": "2025-10-01 13:57:01",
+                "updated_at": "2025-10-01 13:57:20",
+                "country_infor": {
+                    "id": 3,
+                    "name": "Lao",
+                    "code": "lao",
+                    "created_at": "2025-09-26 10:12:05",
+                    "updated_at": "2025-09-26 10:12:05"
+                },
+                "orders": []
+            }
+        ],
+        "error": "",
+        "message": "All customers with orders fetched successfully"
+    },
+    "error": null,
+    "message": null,
+    "data": null,
+    "status": "OK"
+}

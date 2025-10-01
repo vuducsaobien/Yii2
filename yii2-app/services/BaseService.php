@@ -6,7 +6,7 @@ use app\models\Customer;
 
 class BaseService
 {
-    public $customerModel;
+    protected $customerModel;
     
     public function __construct()
     {

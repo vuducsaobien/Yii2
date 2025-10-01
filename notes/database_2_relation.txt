@@ -4,3 +4,13 @@
 
     - Nếu table Country đặt customer_id thì dẫn tới việc 1 Country chỉ thuộc về 1 Customer
     (Không đúng logic, vì 2 Customer có thể thuộc về 1 Country)
+    + 1 Customer => 1 Country
+
+- hasMany
+    + 1 Customer có nhiều Đơn hàng Orders
+    + 1 Customer => N - Orders
+
+
+                        1-1 Has One         1-N Has Many
+                        country_id          customer_id
+- Total: 1 Country <= 1 Customer         => N - Orders

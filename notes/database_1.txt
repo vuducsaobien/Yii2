@@ -10,3 +10,4 @@ https://www.yiiframework.com/doc/guide/2.0/en/db-active-record
 
 
 https://www.yiiframework.com/doc/api/2.0/yii-db-baseactiverecord#hasOne()-detail
+https://www.yiiframework.com/doc/api/2.0/yii-db-baseactiverecord#hasMany()-detail
