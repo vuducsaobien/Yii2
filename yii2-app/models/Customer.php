@@ -4,6 +4,8 @@ namespace app\models;
 use app\models\base\Customer as BaseModel;
 use app\models\base\Order;
 use app\models\base\Country;
+use app\models\base\OrderItem;
+use app\models\base\Item;
 
 class Customer extends BaseModel
 {
@@ -12,7 +14,7 @@ class Customer extends BaseModel
      */
     public function getCountry()
     {
-        return $this->hasOne(Country::class, ['id' => 'country_id']);
+        return $this->hasOne(Country::class, ['country_Id' => 'customer_Country_id']);
     }
 
     /**
@@ -20,6 +22,6 @@ class Customer extends BaseModel
      */
     public function getOrders()
     {
-        return $this->hasMany(Order::class, ['customer_id' => 'id']);
+        return $this->hasMany(Order::class, ['order_Customer_id' => 'customer_Id']);
     }
 }

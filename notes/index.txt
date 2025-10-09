@@ -28,3 +28,6 @@ Dump Database file Dbeaver:
     - docker exec -it yii2-learning bash
     - cd yii2-app/
     - mysqldump -u root -proot yii2db > database_dump_01_10_25.sql
+
+    docker cp "/home/duc-ubuntu-laptop/Documents/projects/Personal/Yii2/database_backup/database_dump_01_10_25.sql" yii2-learning:/tmp/
+    mysql -u root -p'rootpassword' yii2db < /tmp/database_dump_01_10_25.sql
