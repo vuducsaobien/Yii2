@@ -14,3 +14,12 @@
                         1-1 Has One         1-N Has Many
                         country_id          customer_id
 - Total: 1 Country <= 1 Customer         => N - Orders
+
+
+
+
+- via()
+1. Models với via() relations:
+Item.php: Model Item với relations getOrderItems() và getOrders() sử dụng via('orderItems')
+Customer.php: Model Customer với relations getOrders(), getOrderItems(), và getItems() sử dụng via()
+Order.php: Đã có sẵn relations getOrderItems() và getItems() sử dụng via('orderItems')
