@@ -45,8 +45,8 @@ class Customer extends \yii\db\ActiveRecord
     public function fields()
     {
         $fields = parent::fields();
-        $fields['country_infor'] = 'country';
-        $fields['orders'] = 'orders';
+        $fields['customer_Country_infor'] = 'country';
+        $fields['customer_Orders_infor'] = 'orders';
         return $fields;
     }
 }

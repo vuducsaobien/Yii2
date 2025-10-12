@@ -1,0 +1,47 @@
+{
+    "customer_Id": 1,
+    "customer_Name": "Customer 1",
+    "customer_Email": "1@gmail.com",
+    "customer_Country_id": 1,
+    "customer_Created_at": "2025-09-26 10:14:05",
+    "customer_Updated_at": "2025-10-01 13:57:16",
+    "customer_Country_infor": {
+        "country_Id": 1,
+        "country_Name": "Viet Nam",
+        "country_Code": "vn",
+        "country_Created_at": "2025-09-26 10:12:05",
+        "country_Updated_at": "2025-09-26 10:12:05"
+    },
+    "customer_Orders_infor": [
+        {
+            "order_Id": 1,
+            "order_Customer_id": 1,
+            "order_Order_number": "A1",
+            "order_Total_amount": "2.00",
+            "order_Status": "pending",
+            "order_Order_date": "2025-09-29",
+            "order_Created_at": "2025-09-29 16:32:44",
+            "order_Updated_at": "2025-09-29 16:32:44"
+        },
+        {
+            "order_Id": 2,
+            "order_Customer_id": 1,
+            "order_Order_number": "A2",
+            "order_Total_amount": "3.00",
+            "order_Status": "pending",
+            "order_Order_date": "2025-09-28",
+            "order_Created_at": "2025-09-29 16:33:04",
+            "order_Updated_at": "2025-09-29 16:33:04"
+        },
+        {
+            "order_Id": 3,
+            "order_Customer_id": 1,
+            "order_Order_number": "A3",
+            "order_Total_amount": "2.00",
+            "order_Status": "order",
+            "order_Order_date": "2025-09-29",
+            "order_Created_at": "2025-09-29 16:32:44",
+            "order_Updated_at": "2025-09-29 16:32:44"
+        }
+    ]
+},

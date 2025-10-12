@@ -1,0 +1,10 @@
+- Vscode & Cursor cùng login 1 tài khoản
+- Vscode
+    + Ấn button Bánh răng => Setting Synch is on
+
+    
+- Cursor
+    Ctrl + Shift + P => User setting.json => add
+    "[php]": {
+	    "editor.defaultFormatter": "darkriszty.markdown-table-prettify"
+	}
