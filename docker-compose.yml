@@ -16,6 +16,12 @@ services:
       - MYSQL_USER=yii2user
       - MYSQL_PASSWORD=yii2pass
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      timeout: 10s
+      retries: 5
+      interval: 10s
+      start_period: 30s
 
 volumes:
   mysql_data:

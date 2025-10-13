@@ -31,3 +31,8 @@ Dump Database file Dbeaver:
 
     docker cp "/home/duc-ubuntu-laptop/Documents/projects/Personal/Yii2/database_backup/database_dump_01_10_25.sql" yii2-learning:/tmp/
     mysql -u root -p'rootpassword' yii2db < /tmp/database_dump_01_10_25.sql
+
+    Nếu gặp lỗi không thấy db yii2db
+    => docker exec -it yii2-learning bash
+    => cd yii2-app/
+    => mysql -u root -p123456 -e "CREATE DATABASE IF NOT EXISTS yii2db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
