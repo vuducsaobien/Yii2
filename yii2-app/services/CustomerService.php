@@ -4,11 +4,18 @@ namespace app\services;
 
 class CustomerService extends BaseService
 {
+    /**
+     * Lấy danh sách customer không có relation (gây ra N+1 problem)
+     */
     public function getList(): array
     {
         return $this->customerModel::find()->all();
     }
 
+    /**
+     * Lấy danh sách customer với eager loading relations (tránh N+1 problem)
+     * @param array $relations Mảng các relation cần load: ['orders', 'country']
+     */
     public function getListWithRelations(array $relations = []): array
     {
         $query = $this->customerModel::find();

@@ -12,7 +12,6 @@ class CustomerController extends BaseController
         // /*
             $data = $this->customerService->getList();
             /*
-
                 --- Customer table ---
                 | customer_Id | customer_Country_id |
                 |-------------|---------------------|
@@ -30,7 +29,19 @@ class CustomerController extends BaseController
                 | 3        | 2                 |
                 | 4        | 3                 |
                 | 5        | 3                 |
-                
+                | 6        | 3                 |
+                | 7        | 3                 |
+
+                --- Country table ---
+                | country_Id | country_Name |
+                |------------|--------------|
+                | 1          | Vietnam      |
+                | 2          | China        |
+                | 3          | Lao          |
+                | 4          | Cambodia     |
+                | 5          | Thailand     |
+                | 6          | Malaysia     |
+
                 SELECT * FROM `customer`
                 SELECT * FROM `country` WHERE `country_Id`=1
                 SELECT * FROM `order` WHERE `order_Customer_id`=1
@@ -46,21 +57,27 @@ class CustomerController extends BaseController
 
                 SELECT * FROM `country` WHERE `country_Id`=3
                 SELECT * FROM `order` WHERE `order_Customer_id`=5
+
+                => SELECT * FROM `country` WHERE `country_Id`= 1,1,1,2,3
+                Vì table Customer có customer_Country_id = 1,1,1,2,3
+                nên nó sẽ query đúng.
+                Hoặc SELECT * FROM `customer` => Nó sẽ biết phải query country_Id từ customer_Country_id
+                nên sẽ lấy chính xác Country table
+
+                Hoặc có 5 Customer record nhưng chỉ có 3 Country (country_Id = 1,2,3)
+
+                => Còn SELECT * FROM `order` WHERE `order_Customer_id`=1,2,3,4,5
+                mà không phải SELECT * FROM `order` WHERE `order_Id` =1,2,3,4,5,...
+                vì order table có Foreign key là order_Customer_id 
+                (Liên kết order_Customer_id - table Order với customer_Id - table Customer)
+                Để làm rõ, sẽ tăng record bảng Order lên 6 record hoặc cao hơn
+
+                => Vẫn chỉ lấy đến
+                SELECT * FROM `order` WHERE `order_Customer_id`=5
+                Vì customer_Id max là 5
+                => Nên chỉ lấy SELECT * FROM `order` WHERE `order_Customer_id`=5 là tối đa
         // */
 
-        /*
-            Customer table
-            | customer_Id | customer_Country_id |
-            |-------------|---------------------|
-            | 1           | 1                   |
-            | 2           | 1                   |
-            | 3           | 1                   |
-            | 4           | 2                   |
-            | 5           | 3                   |       
-        // /*
-
-        /*
-        // /*
         
         /*
             $data = $this->customerService->getListWithRelations(['orders', 'country']);
@@ -78,48 +95,4 @@ class CustomerController extends BaseController
         return $this->res->build();
     }
 
-    public function actionViaRelation()
-    {
-        $data = $this->customerService->getOrdersWithItemsViaRelation();
-        $this->res->data = $data;
-        $this->res->message = 'Orders with items via() relation fetched successfully';
-        $this->res->status = ApiConstant::STATUS_OK;
-        return $this->res->build();
-    }
-
-    public function actionCustomerItemsViaRelation()
-    {
-        $data = $this->customerService->getCustomersWithItemsViaRelation();
-        $this->res->data = $data;
-        $this->res->message = 'Customers with items via() relation fetched successfully';
-        $this->res->status = ApiConstant::STATUS_OK;
-        return $this->res->build();
-    }
-
-    public function actionWithCountry()
-    {
-        $data = $this->customerService->getCustomersWithCountry();
-        $this->res->data = $data;
-        $this->res->message = 'Customers with country (hasOne) relation fetched successfully';
-        $this->res->status = ApiConstant::STATUS_OK;
-        return $this->res->build();
-    }
-
-    public function actionCountryInfo($id)
-    {
-        $data = $this->customerService->getCustomerWithCountryInfo($id);
-        $this->res->data = $data;
-        $this->res->message = 'Customer with country info (hasOne) fetched successfully';
-        $this->res->status = ApiConstant::STATUS_OK;
-        return $this->res->build();
-    }
-
-    public function actionCountryCustomers($id)
-    {
-        $data = $this->customerService->getCountryWithCustomers($id);
-        $this->res->data = $data;
-        $this->res->message = 'Country with customers (hasMany) fetched successfully';
-        $this->res->status = ApiConstant::STATUS_OK;
-        return $this->res->build();
-    }
 }
