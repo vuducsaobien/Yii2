@@ -10,7 +10,7 @@ class CustomerController extends BaseController
     public function actionIndex()
     {
         // /*
-            $data = $this->customerService->getList();
+            // $data = $this->customerService->getList();
             /*
                 --- Customer table ---
                 | customer_Id | customer_Country_id |
@@ -79,10 +79,13 @@ class CustomerController extends BaseController
         // */
 
         
-        /*
+        // /*
             $data = $this->customerService->getListWithRelations(['orders', 'country']);
 
             /*
+                SELECT * FROM `customer` (customer_Id = 1, 2, 3, 4, 5)
+                SELECT * FROM `order` WHERE `order_Customer_id` IN (1, 2, 3, 4, 5)
+                SELECT * FROM `country` WHERE `country_Id` IN (1, 2, 3)
         // */
 
         /*
