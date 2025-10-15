@@ -26,4 +26,15 @@ class CustomerService extends BaseService
     
         return $query->all();
     }
+    
+    /**
+     * Generic method để lấy customers với bất kỳ relations nào
+     * @param array $relations Array of relations to load: ['orders', 'country', 'items']
+     * @return array
+     */
+    public function getListWithCustomRelations(array $relations): array
+    {
+        return $this->customerModel::find()->withCustomRelation($relations)->all();
+    }
+    
 }

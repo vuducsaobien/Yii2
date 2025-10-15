@@ -2,8 +2,12 @@
 
 namespace app\models\base;
 
+use app\models\query\CustomerQuery;
+
 class Customer extends \yii\db\ActiveRecord
 {
+    public $_customRelations;
+
     /**
      * @inheritdoc
      */
@@ -42,11 +46,9 @@ class Customer extends \yii\db\ActiveRecord
         ];
     }
 
-    public function fields()
+    public static function find()
     {
-        $fields = parent::fields();
-        $fields['customer_Country_infor'] = 'country';
-        $fields['customer_Orders_infor'] = 'orders';
-        return $fields;
+        // die('abc-1 - Customer base model - find');
+        return new CustomerQuery(get_called_class());
     }
 }

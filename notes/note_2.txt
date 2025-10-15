@@ -1,0 +1,13 @@
+http://localhost:8080/customer/with-custom-relations
+
+abc-1 - Customer base model - find
+abc-2 - Customer query - withCustomRelation
+abc-3 - Customer query - populate
+abc-4 - Custom relation behavior - events
+abc-5 - Customer model - fields
+
+SELECT * FROM `customer`
+SELECT * FROM `order` WHERE `order_Customer_id` IN (1, 2, 3, 4, 5)
+
+https://www.yiiframework.com/doc/api/2.0/yii-db-activequery#populate()-detail
+https://www.yiiframework.com/doc/api/2.0/yii-base-component#attachBehavior()-detail

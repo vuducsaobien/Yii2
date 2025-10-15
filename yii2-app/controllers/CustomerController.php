@@ -9,8 +9,8 @@ class CustomerController extends BaseController
 {
     public function actionIndex()
     {
-        // /*
-            // $data = $this->customerService->getList();
+        // Chỉ lấy customers với orders, không có country
+        $data = $this->customerService->getListWithOrdersOnly();
             /*
                 --- Customer table ---
                 | customer_Id | customer_Country_id |
@@ -80,20 +80,45 @@ class CustomerController extends BaseController
 
         
         // /*
-            $data = $this->customerService->getListWithRelations(['orders', 'country']);
+            // $data = $this->customerService->getListWithRelations(['orders', 'country'], false);
+            // foreach ($data as $customer) {
+            //     echo $customer->customer_Name;
+            // }
 
+            // die();
             /*
                 SELECT * FROM `customer` (customer_Id = 1, 2, 3, 4, 5)
                 SELECT * FROM `order` WHERE `order_Customer_id` IN (1, 2, 3, 4, 5)
                 SELECT * FROM `country` WHERE `country_Id` IN (1, 2, 3)
         // */
 
-        /*
-            $data = $this->customerService->getListWithRelations(['orders']);
+        // $data = $this->customerService->exactlyGetListWithRelations();
+
+        // /*
+            // $data = $this->customerService->getListWithRelations(['orders'], true);
+            // foreach ($data as $customer) {
+            //     echo $customer['customer_Name'];
+            // }
+            // die();
         // */
 
         $this->res->data = $data;
         $this->res->message = 'Customers fetched successfully';
+        $this->res->status = ApiConstant::STATUS_OK;
+        return $this->res->build();
+    }
+    
+    
+    /**
+     * Lấy customers với custom relations (generic method)
+     */
+    public function actionWithCustomRelations()
+    {
+        // Có thể config bất kỳ combination nào
+        $relations = ['orders']; // Hoặc ['orders'], ['country'], ['orders', 'items'], etc.
+        $data = $this->customerService->getListWithCustomRelations($relations);
+        $this->res->data = $data;
+        $this->res->message = 'Customers with custom relations fetched successfully';
         $this->res->status = ApiConstant::STATUS_OK;
         return $this->res->build();
     }
