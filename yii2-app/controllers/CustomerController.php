@@ -10,7 +10,7 @@ class CustomerController extends BaseController
     public function actionIndex()
     {
         // Chỉ lấy customers với orders, không có country
-        $data = $this->customerService->getListWithOrdersOnly();
+        // $data = $this->customerService->getListWithOrdersOnly();
             /*
                 --- Customer table ---
                 | customer_Id | customer_Country_id |
@@ -95,7 +95,7 @@ class CustomerController extends BaseController
         // $data = $this->customerService->exactlyGetListWithRelations();
 
         // /*
-            // $data = $this->customerService->getListWithRelations(['orders'], true);
+            $data = $this->customerService->getListWithRelations(['orders'], true);
             // foreach ($data as $customer) {
             //     echo $customer['customer_Name'];
             // }

@@ -16,12 +16,16 @@ class CustomerService extends BaseService
      * Lấy danh sách customer với eager loading relations (tránh N+1 problem)
      * @param array $relations Mảng các relation cần load: ['orders', 'country']
      */
-    public function getListWithRelations(array $relations = []): array
+    public function getListWithRelations(array $relations = [], $asArray = false): array
     {
         $query = $this->customerModel::find();
 
         if (!empty($relations)) {
             $query->with($relations);
+        }
+
+        if ($asArray) {
+            $query->asArray();
         }
     
         return $query->all();
