@@ -48,7 +48,6 @@ class Customer extends \yii\db\ActiveRecord
 
     public static function find()
     {
-        // die('abc-1 - Customer base model - find');
         return new CustomerQuery(get_called_class());
     }
 }

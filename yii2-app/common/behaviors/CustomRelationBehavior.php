@@ -14,8 +14,6 @@ class CustomRelationBehavior extends Behavior
     
     public function events()
     {
-        // die('abc-4 - Custom relation behavior - events');
-
         return [
             ActiveRecord::EVENT_AFTER_FIND => 'afterFind'
         ];

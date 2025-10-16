@@ -14,20 +14,15 @@ class Customer extends BaseModel
     public function fields()
     {
         $fields = parent::fields();
-
-        // echo '<pre style="color:red";>$this->_customRelations === '; 
-        // print_r($this->_customRelations);echo '</pre>';
-        // die('abc-5 - Customer model - fields');
-
-        if ($this->_customRelations !== null && !empty($this->_customRelations)) {
-            // Thêm custom relations
-            if (in_array(CustomerRelationsEnums::COUNTRY, $this->_customRelations)) {
+        // if ($this->_customRelations !== null && !empty($this->_customRelations)) {
+        //     // Thêm custom relations
+        //     if (in_array(CustomerRelationsEnums::COUNTRY, $this->_customRelations)) {
                 $fields['customer_Country_infor'] = CustomerRelationsEnums::COUNTRY;
-            }
-            if (in_array(CustomerRelationsEnums::ORDERS, $this->_customRelations)) {
+            // }
+            // if (in_array(CustomerRelationsEnums::ORDERS, $this->_customRelations)) {
                 $fields['customer_Orders_infor'] = CustomerRelationsEnums::ORDERS;
-            }
-        }
+            // }
+        // }
         
         return $fields;
     }
