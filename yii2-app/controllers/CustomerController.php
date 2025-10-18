@@ -26,13 +26,4 @@ class CustomerController extends BaseController
         $this->res->status = ApiConstant::STATUS_OK;
         return $this->res->build();
     }
-
-    public function actionViaRelation()
-    {
-        $data = $this->customerService->getListWithViaRelation();
-        $this->res->data = $data;
-        $this->res->message = 'Customers with via relation fetched successfully';
-        $this->res->status = ApiConstant::STATUS_OK;
-        return $this->res->build();
-    }
 }

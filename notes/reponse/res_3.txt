@@ -1,0 +1,133 @@
+http://localhost:8080/order/via-table
+
+Cách 1: via table - relation
+{
+    "result": {
+        "status": "OK",
+        "data": [
+            {
+                "order_Id": 1,
+                "order_Customer_id": 1,
+                "order_Order_number": "A1",
+                "order_Total_amount": "2.00",
+                "order_Status": "pending",
+                "order_Order_date": "2025-09-29",
+                "order_Created_at": "2025-09-29 16:32:44",
+                "order_Updated_at": "2025-09-29 16:32:44",
+                "order_Items_infor": [
+                    {
+                        "item_Id": 1,
+                        "item_Name": "Item 1",
+                        "item_Description": null,
+                        "item_Price": "10.00",
+                        "item_Category": null,
+                        "item_Stock_quantity": 0,
+                        "item_Is_active": 1,
+                        "item_Created_at": "2025-10-16 15:13:56",
+                        "item_Updated_at": "2025-10-16 15:13:56"
+                    },
+                    {
+                        "item_Id": 2,
+                        "item_Name": "Item 2",
+                        "item_Description": null,
+                        "item_Price": "11.00",
+                        "item_Category": null,
+                        "item_Stock_quantity": 0,
+                        "item_Is_active": 1,
+                        "item_Created_at": "2025-10-16 15:14:04",
+                        "item_Updated_at": "2025-10-16 15:14:04"
+                    }
+                ]
+            },
+            {
+                "order_Id": 2,
+                "order_Customer_id": 2,
+                "order_Order_number": "A2",
+                "order_Total_amount": "3.00",
+                "order_Status": "pending",
+                "order_Order_date": "2025-09-28",
+                "order_Created_at": "2025-09-29 16:33:04",
+                "order_Updated_at": "2025-10-11 13:44:33",
+                "order_Items_infor": [
+                    {
+                        "item_Id": 2,
+                        "item_Name": "Item 2",
+                        "item_Description": null,
+                        "item_Price": "11.00",
+                        "item_Category": null,
+                        "item_Stock_quantity": 0,
+                        "item_Is_active": 1,
+                        "item_Created_at": "2025-10-16 15:14:04",
+                        "item_Updated_at": "2025-10-16 15:14:04"
+                    }
+                ]
+            },
+            {
+                "order_Id": 3,
+                "order_Customer_id": 2,
+                "order_Order_number": "A3",
+                "order_Total_amount": "2.00",
+                "order_Status": "order",
+                "order_Order_date": "2025-09-29",
+                "order_Created_at": "2025-09-29 16:32:44",
+                "order_Updated_at": "2025-10-11 13:44:33",
+                "order_Items_infor": []
+            },
+            {
+                "order_Id": 4,
+                "order_Customer_id": 3,
+                "order_Order_number": "A4",
+                "order_Total_amount": "3.00",
+                "order_Status": "active",
+                "order_Order_date": "2025-09-28",
+                "order_Created_at": "2025-09-29 16:33:04",
+                "order_Updated_at": "2025-10-11 13:44:33",
+                "order_Items_infor": []
+            },
+            {
+                "order_Id": 5,
+                "order_Customer_id": 3,
+                "order_Order_number": "A5",
+                "order_Total_amount": "1.00",
+                "order_Status": "inactive",
+                "order_Order_date": "2025-09-28",
+                "order_Created_at": "2025-09-29 16:33:04",
+                "order_Updated_at": "2025-10-01 13:58:00",
+                "order_Items_infor": []
+            },
+            {
+                "order_Id": 6,
+                "order_Customer_id": 3,
+                "order_Order_number": "A6",
+                "order_Total_amount": "1.00",
+                "order_Status": "inactive",
+                "order_Order_date": "2025-09-28",
+                "order_Created_at": "2025-09-29 16:33:04",
+                "order_Updated_at": "2025-10-01 13:58:00",
+                "order_Items_infor": []
+            },
+            {
+                "order_Id": 7,
+                "order_Customer_id": 3,
+                "order_Order_number": "A7",
+                "order_Total_amount": "1.00",
+                "order_Status": "inactive",
+                "order_Order_date": "2025-09-28",
+                "order_Created_at": "2025-09-29 16:33:04",
+                "order_Updated_at": "2025-10-01 13:58:00",
+                "order_Items_infor": []
+            }
+        ],
+        "error": "",
+        "message": "Orders with via table - fetched successfully"
+    },
+    "error": null,
+    "message": null,
+    "data": null,
+    "status": "OK"
+}
+
+Cách 2: via - relation
+
+
+=> 2 reponse giống nhau

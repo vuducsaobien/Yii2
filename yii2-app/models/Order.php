@@ -5,20 +5,36 @@ use app\models\base\Order as BaseModel;
 
 class Order extends BaseModel
 {
-    /**
-     * Gets query for the order items that belong to this order (hasMany relationship)
-     */
-    public function getOrderItems()
+    public function fields()
     {
-        return $this->hasMany(OrderItem::class, ['order_id' => 'id']);
+        $fields = parent::fields();
+        $fields['order_Items_infor'] = 'items';
+        return $fields;
     }
 
-    /**
-     * Gets query for the items that belong to this order (hasMany through via relationship)
-     * This uses the orderItems relationship as a bridge
-     */
-    public function getItems()
-    {
-        return $this->hasMany(Item::class, ['id' => 'item_id'])->via('orderItems');
-    }
+    // /*
+        public function getItems()
+        {
+            return $this->hasMany(Item::class, ['item_Id' => 'order_item_Item_id'])
+                ->viaTable('order_items', ['order_item_Order_id' => 'order_Id']);
+        }
+        /*
+            Cách 1: Via Table Junction relation - Đi thẳng luôn, không qua trung gian OrderItem
+            Via Table Junction relation: Order → Item
+    // */
+
+    /*
+        public function getOrderItems()
+        {
+            return $this->hasMany(OrderItem::class, ['order_item_Order_id' => 'order_Id']);
+        }
+
+        public function getItems()
+        {
+            return $this->hasMany(Item::class, ['item_Id' => 'order_item_Item_id'])->via('orderItems');
+        }
+        /* Cách 2: Via - relation : Order → OrderItem → Item
+            Query:
+                SELECT * FROM `order`
+    // */
 }
