@@ -166,7 +166,7 @@ Cách 1: via table - relation
     "status": "OK"
 }
 
-{
+{ Không bị lỗi này nữa.
     "name": "Exception",
     "message": "app\\models\\Order has no relation named \"orderItems\".",
     "code": 0,
