@@ -166,7 +166,11 @@ Cách 1: via table - relation
     "status": "OK"
 }
 
-Cách 2: via - relation
-
-
-=> 2 reponse giống nhau
+{
+    "name": "Exception",
+    "message": "app\\models\\Order has no relation named \"orderItems\".",
+    "code": 0,
+    "type": "yii\\base\\InvalidArgumentException",
+    "file": "/var/www/html/yii2-app/vendor/yiisoft/yii2/db/BaseActiveRecord.php",
+    "line": 1252,
+}

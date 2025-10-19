@@ -7,7 +7,8 @@ class OrderService extends BaseService
     public function getListViaTable(): array
     {
         // /*
-            return $this->orderModel::find()->with(['items'])->all();
+            // return $this->orderModel::find()->with(['items'])->all();
+            return $this->orderModel::find()->with(['items','orderItems'])->all(); // bị lỗi vì không có relation orderItems
             /*
             Data:
                 Order table         OrderItem table                                                 Item table
