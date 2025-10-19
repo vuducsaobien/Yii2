@@ -28,8 +28,14 @@ class OrderService extends BaseService
         // */
     }
 
-    // public function getListWithViaTableRelation(): array
-    // {
-        // return $this->orderModel::find()->all();
-    // }
+    public function getListVia(): array
+    {
+        return $this->orderModel::find()->with(['items'])->all();
+    }
+
+    public function getListViaOrderItems(): array
+    {
+        // return $this->orderModel::find()->with(['items', 'orderItems'])->all();
+        return $this->orderModel::find()->with(['items','orderItems'])->asArray()->all();
+    }
 }

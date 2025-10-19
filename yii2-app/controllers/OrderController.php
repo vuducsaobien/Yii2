@@ -16,12 +16,12 @@ class OrderController extends BaseController
         return $this->res->build();
     }
 
-    public function actionViaRelation()
+    public function actionVia()
     {
-        // $data = $this->customerService->getListWithViaTableRelation();
-        // $this->res->data = $data;
-        // $this->res->message = 'Customers with via table relation - fetched successfully';
-        // $this->res->status = ApiConstant::STATUS_OK;
-        // return $this->res->build();
+        $data = $this->orderService->getListVia();
+        $this->res->data = $data;
+        $this->res->message = 'Orders with via - fetched successfully';
+        $this->res->status = ApiConstant::STATUS_OK;
+        return $this->res->build();
     }
 }

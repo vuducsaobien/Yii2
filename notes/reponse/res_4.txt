@@ -1,6 +1,6 @@
-http://localhost:8080/order/via-table
+http://localhost:8080/order/via
+Cách 2: via - relation
 
-Cách 1: via table - relation
 {
     "result": {
         "status": "OK",
@@ -158,15 +158,10 @@ Cách 1: via table - relation
             }
         ],
         "error": "",
-        "message": "Orders with via table - fetched successfully"
+        "message": "Orders with via - fetched successfully"
     },
     "error": null,
     "message": null,
     "data": null,
     "status": "OK"
 }
-
-Cách 2: via - relation
-
-
-=> 2 reponse giống nhau

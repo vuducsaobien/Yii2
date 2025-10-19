@@ -9,10 +9,11 @@ class Order extends BaseModel
     {
         $fields = parent::fields();
         $fields['order_Items_infor'] = 'items';
+        $fields['order_Order_items_infor'] = 'orderItems';
         return $fields;
     }
 
-    // /*
+    /*
         public function getItems()
         {
             return $this->hasMany(Item::class, ['item_Id' => 'order_item_Item_id'])
@@ -23,7 +24,7 @@ class Order extends BaseModel
             Via Table Junction relation: Order → Item
     // */
 
-    /*
+    // /*
         public function getOrderItems()
         {
             return $this->hasMany(OrderItem::class, ['order_item_Order_id' => 'order_Id']);
@@ -34,7 +35,5 @@ class Order extends BaseModel
             return $this->hasMany(Item::class, ['item_Id' => 'order_item_Item_id'])->via('orderItems');
         }
         /* Cách 2: Via - relation : Order → OrderItem → Item
-            Query:
-                SELECT * FROM `order`
     // */
 }
