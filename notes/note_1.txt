@@ -1,47 +1,38 @@
-{
-    "customer_Id": 1,
-    "customer_Name": "Customer 1",
-    "customer_Email": "1@gmail.com",
-    "customer_Country_id": 1,
-    "customer_Created_at": "2025-09-26 10:14:05",
-    "customer_Updated_at": "2025-10-01 13:57:16",
-    "customer_Country_infor": {
-        "country_Id": 1,
-        "country_Name": "Viet Nam",
-        "country_Code": "vn",
-        "country_Created_at": "2025-09-26 10:12:05",
-        "country_Updated_at": "2025-09-26 10:12:05"
-    },
-    "customer_Orders_infor": [
-        {
-            "order_Id": 1,
-            "order_Customer_id": 1,
-            "order_Order_number": "A1",
-            "order_Total_amount": "2.00",
-            "order_Status": "pending",
-            "order_Order_date": "2025-09-29",
-            "order_Created_at": "2025-09-29 16:32:44",
-            "order_Updated_at": "2025-09-29 16:32:44"
-        },
-        {
-            "order_Id": 2,
-            "order_Customer_id": 1,
-            "order_Order_number": "A2",
-            "order_Total_amount": "3.00",
-            "order_Status": "pending",
-            "order_Order_date": "2025-09-28",
-            "order_Created_at": "2025-09-29 16:33:04",
-            "order_Updated_at": "2025-09-29 16:33:04"
-        },
-        {
-            "order_Id": 3,
-            "order_Customer_id": 1,
-            "order_Order_number": "A3",
-            "order_Total_amount": "2.00",
-            "order_Status": "order",
-            "order_Order_date": "2025-09-29",
-            "order_Created_at": "2025-09-29 16:32:44",
-            "order_Updated_at": "2025-09-29 16:32:44"
-        }
-    ]
-},
+- Yii2
+- docker compose build
+docker compose up -d
+
+DBeaver: Mysql:
+Connected by Host
+    Server host: localhost Port: 3306
+    Database: yii2db
+    Username: yii2user
+    Pass: yii2pass
+
+- docker ps
+- docker exec -it yii2-learning bash
+- cd yii2-app
+- php yii migrate/create create_table_1_table
+- php yii migrate
+
+API: Get http://localhost:8000/index.php?r=user/index => http://localhost:8000/user/index (UserController, actionIndex)
+thì phải dùng Pretty URL
+https://www.yiiframework.com/doc/guide/2.0/en/runtime-routing
+
+Truy cập http://localhost:8080/debug để xem tất cả câu query
+Mỗi lần chạy 1 API , sẽ sinh ra 1 record ở trang này.
+Ở file runtime/debug/   *.data
+
+Dump Database file Dbeaver:
+    - Dump db mysqldump (Nhiều khi DBeaver không hỗ trợ đâu)
+    - docker exec -it yii2-learning bash
+    - cd yii2-app/
+    - mysqldump -u root -proot yii2db > database_dump_12_10_25.sql
+
+    docker cp "/home/duc-ubuntu-laptop/Documents/projects/Personal/Yii2/database_backup/database_dump_01_10_25.sql" yii2-learning:/tmp/
+    mysql -u root -p'rootpassword' yii2db < /tmp/database_dump_01_10_25.sql
+
+    Nếu gặp lỗi không thấy db yii2db
+    => docker exec -it yii2-learning bash
+    => cd yii2-app/
+    => mysql -u root -p123456 -e "CREATE DATABASE IF NOT EXISTS yii2db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
