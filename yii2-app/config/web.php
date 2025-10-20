@@ -50,6 +50,9 @@ $config = [
         'orderService' => [
             'class' => 'app\services\OrderService',
         ],
+        'itemService' => [
+            'class' => 'app\services\ItemService',
+        ],
         //
         'urlManager' => [
             'enablePrettyUrl' => true,

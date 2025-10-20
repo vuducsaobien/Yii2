@@ -1,0 +1,130 @@
+http://localhost:8080/item/list
+{
+    "result": {
+        "status": "OK",
+        "data": [
+            {
+                "item_Id": 1,
+                "item_Name": "Item 1",
+                "item_Description": null,
+                "item_Price": "10.00",
+                "item_Category": null,
+                "item_Stock_quantity": 0,
+                "item_Is_active": 1,
+                "item_Created_at": "2025-10-16 15:13:56",
+                "item_Updated_at": "2025-10-16 15:13:56",
+                "orderItems": [
+                    {
+                        "order_item_Id": 1,
+                        "order_item_Order_id": 1,
+                        "order_item_Item_id": 1,
+                        "order_item_Quantity": 1,
+                        "order_item_Price": "12.00",
+                        "order_item_Total": "13.00",
+                        "order_item_Created_at": "2025-10-16 15:19:10",
+                        "order_item_Updated_at": "2025-10-16 15:19:10"
+                    }
+                ],
+                "orders": [
+                    {
+                        "order_Id": 1,
+                        "order_Customer_id": 1,
+                        "order_Order_number": "A1",
+                        "order_Total_amount": "2.00",
+                        "order_Status": "pending",
+                        "order_Order_date": "2025-09-29",
+                        "order_Created_at": "2025-09-29 16:32:44",
+                        "order_Updated_at": "2025-09-29 16:32:44"
+                    }
+                ]
+            },
+            {
+                "item_Id": 2,
+                "item_Name": "Item 2",
+                "item_Description": null,
+                "item_Price": "11.00",
+                "item_Category": null,
+                "item_Stock_quantity": 0,
+                "item_Is_active": 1,
+                "item_Created_at": "2025-10-16 15:14:04",
+                "item_Updated_at": "2025-10-16 15:14:04",
+                "orderItems": [
+                    {
+                        "order_item_Id": 2,
+                        "order_item_Order_id": 1,
+                        "order_item_Item_id": 2,
+                        "order_item_Quantity": 1,
+                        "order_item_Price": "12.00",
+                        "order_item_Total": "13.00",
+                        "order_item_Created_at": "2025-10-16 15:19:10",
+                        "order_item_Updated_at": "2025-10-16 15:19:10"
+                    },
+                    {
+                        "order_item_Id": 3,
+                        "order_item_Order_id": 2,
+                        "order_item_Item_id": 2,
+                        "order_item_Quantity": 1,
+                        "order_item_Price": "12.00",
+                        "order_item_Total": "13.00",
+                        "order_item_Created_at": "2025-10-16 15:19:10",
+                        "order_item_Updated_at": "2025-10-16 15:19:10"
+                    }
+                ],
+                "orders": [
+                    {
+                        "order_Id": 1,
+                        "order_Customer_id": 1,
+                        "order_Order_number": "A1",
+                        "order_Total_amount": "2.00",
+                        "order_Status": "pending",
+                        "order_Order_date": "2025-09-29",
+                        "order_Created_at": "2025-09-29 16:32:44",
+                        "order_Updated_at": "2025-09-29 16:32:44"
+                    },
+                    {
+                        "order_Id": 2,
+                        "order_Customer_id": 2,
+                        "order_Order_number": "A2",
+                        "order_Total_amount": "3.00",
+                        "order_Status": "pending",
+                        "order_Order_date": "2025-09-28",
+                        "order_Created_at": "2025-09-29 16:33:04",
+                        "order_Updated_at": "2025-10-11 13:44:33"
+                    }
+                ]
+            },
+            {
+                "item_Id": 3,
+                "item_Name": "Item 3",
+                "item_Description": null,
+                "item_Price": "10.00",
+                "item_Category": null,
+                "item_Stock_quantity": 0,
+                "item_Is_active": 1,
+                "item_Created_at": "2025-10-16 15:13:56",
+                "item_Updated_at": "2025-10-16 15:13:56",
+                "orderItems": [],
+                "orders": []
+            },
+            {
+                "item_Id": 4,
+                "item_Name": "Item 4",
+                "item_Description": null,
+                "item_Price": "11.00",
+                "item_Category": null,
+                "item_Stock_quantity": 0,
+                "item_Is_active": 1,
+                "item_Created_at": "2025-10-16 15:14:04",
+                "item_Updated_at": "2025-10-16 15:14:04",
+                "orderItems": [],
+                "orders": []
+            }
+        ],
+        "error": "",
+        "message": "Items with list - fetched successfully"
+    },
+    "error": null,
+    "message": null,
+    "data": null,
+    "status": "OK"
+}

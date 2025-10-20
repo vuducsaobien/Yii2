@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use app\services\CustomerService;
 use app\services\OrderService;
+use app\services\ItemService;
 use app\common\helper\response\ResponseHelper;
 
 class BaseController extends Controller
@@ -21,6 +22,11 @@ class BaseController extends Controller
     protected $orderService;
 
     /**
+     * @var ItemService
+     */
+    protected $itemService;
+
+    /**
      * @var ResponseHelper
      */
     protected $res;
@@ -31,5 +37,6 @@ class BaseController extends Controller
         $this->res = new ResponseHelper();
         $this->customerService = Yii::$app->customerService;
         $this->orderService = Yii::$app->orderService;
+        $this->itemService = Yii::$app->itemService;
     }
 }
