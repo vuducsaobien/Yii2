@@ -2,7 +2,7 @@
 
 namespace app\models;
 use app\models\base\Customer as BaseModel;
-use app\models\base\Order;
+use app\models\Order;
 use app\models\base\Country;
 use app\common\enums\CustomerRelationsEnums;
 
@@ -23,7 +23,7 @@ class Customer extends BaseModel
                 $fields['customer_Orders_infor'] = CustomerRelationsEnums::ORDERS;
             // }
         // }
-        
+        $fields['customer_Items_infor'] = 'items';
         return $fields;
     }
     

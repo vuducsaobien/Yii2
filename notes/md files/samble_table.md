@@ -31,3 +31,10 @@ Order table         OrderItem table                                             
 | 7        |
 
 
+| customer_Id |
+|-------------|
+| 1           |
+| 2           |
+| 3           |
+| 4           |
+| 5           |

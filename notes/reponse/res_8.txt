@@ -1,0 +1,213 @@
+http://localhost:8080/customer/get-items
+{
+    "result": {
+        "status": "OK",
+        "data": [
+            {
+                "customer_Id": 1,
+                "customer_Country_id": 1,
+                "customer_Name": "Customer 1",
+                "customer_Email": "1@gmail.com",
+                "customer_Created_at": "2025-09-26 10:14:05",
+                "customer_Updated_at": "2025-10-01 13:57:16",
+                "orders": [
+                    {
+                        "order_Id": 1,
+                        "order_Customer_id": 1,
+                        "order_Order_number": "A1",
+                        "order_Total_amount": "2.00",
+                        "order_Status": "pending",
+                        "order_Order_date": "2025-09-29",
+                        "order_Created_at": "2025-09-29 16:32:44",
+                        "order_Updated_at": "2025-09-29 16:32:44",
+                        "orderItems": [
+                            {
+                                "order_item_Id": 1,
+                                "order_item_Order_id": 1,
+                                "order_item_Item_id": 1,
+                                "order_item_Quantity": 1,
+                                "order_item_Price": "12.00",
+                                "order_item_Total": "13.00",
+                                "order_item_Created_at": "2025-10-16 15:19:10",
+                                "order_item_Updated_at": "2025-10-16 15:19:10"
+                            },
+                            {
+                                "order_item_Id": 2,
+                                "order_item_Order_id": 1,
+                                "order_item_Item_id": 2,
+                                "order_item_Quantity": 1,
+                                "order_item_Price": "12.00",
+                                "order_item_Total": "13.00",
+                                "order_item_Created_at": "2025-10-16 15:19:10",
+                                "order_item_Updated_at": "2025-10-16 15:19:10"
+                            }
+                        ],
+                        "items": [
+                            {
+                                "item_Id": 1,
+                                "item_Name": "Item 1",
+                                "item_Description": null,
+                                "item_Price": "10.00",
+                                "item_Category": null,
+                                "item_Stock_quantity": 0,
+                                "item_Is_active": 1,
+                                "item_Created_at": "2025-10-16 15:13:56",
+                                "item_Updated_at": "2025-10-16 15:13:56"
+                            },
+                            {
+                                "item_Id": 2,
+                                "item_Name": "Item 2",
+                                "item_Description": null,
+                                "item_Price": "11.00",
+                                "item_Category": null,
+                                "item_Stock_quantity": 0,
+                                "item_Is_active": 1,
+                                "item_Created_at": "2025-10-16 15:14:04",
+                                "item_Updated_at": "2025-10-16 15:14:04"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "customer_Id": 2,
+                "customer_Country_id": 1,
+                "customer_Name": "Customer 2",
+                "customer_Email": "2@gmail.com",
+                "customer_Created_at": "2025-09-26 10:14:05",
+                "customer_Updated_at": "2025-10-01 13:57:16",
+                "orders": [
+                    {
+                        "order_Id": 2,
+                        "order_Customer_id": 2,
+                        "order_Order_number": "A2",
+                        "order_Total_amount": "3.00",
+                        "order_Status": "pending",
+                        "order_Order_date": "2025-09-28",
+                        "order_Created_at": "2025-09-29 16:33:04",
+                        "order_Updated_at": "2025-10-11 13:44:33",
+                        "orderItems": [
+                            {
+                                "order_item_Id": 3,
+                                "order_item_Order_id": 2,
+                                "order_item_Item_id": 2,
+                                "order_item_Quantity": 1,
+                                "order_item_Price": "12.00",
+                                "order_item_Total": "13.00",
+                                "order_item_Created_at": "2025-10-16 15:19:10",
+                                "order_item_Updated_at": "2025-10-16 15:19:10"
+                            }
+                        ],
+                        "items": [
+                            {
+                                "item_Id": 2,
+                                "item_Name": "Item 2",
+                                "item_Description": null,
+                                "item_Price": "11.00",
+                                "item_Category": null,
+                                "item_Stock_quantity": 0,
+                                "item_Is_active": 1,
+                                "item_Created_at": "2025-10-16 15:14:04",
+                                "item_Updated_at": "2025-10-16 15:14:04"
+                            }
+                        ]
+                    },
+                    {
+                        "order_Id": 3,
+                        "order_Customer_id": 2,
+                        "order_Order_number": "A3",
+                        "order_Total_amount": "2.00",
+                        "order_Status": "order",
+                        "order_Order_date": "2025-09-29",
+                        "order_Created_at": "2025-09-29 16:32:44",
+                        "order_Updated_at": "2025-10-11 13:44:33",
+                        "orderItems": [],
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "customer_Id": 3,
+                "customer_Country_id": 1,
+                "customer_Name": "Customer 3",
+                "customer_Email": "3@gmail.com",
+                "customer_Created_at": "2025-09-26 10:14:35",
+                "customer_Updated_at": "2025-10-01 13:57:16",
+                "orders": [
+                    {
+                        "order_Id": 4,
+                        "order_Customer_id": 3,
+                        "order_Order_number": "A4",
+                        "order_Total_amount": "3.00",
+                        "order_Status": "active",
+                        "order_Order_date": "2025-09-28",
+                        "order_Created_at": "2025-09-29 16:33:04",
+                        "order_Updated_at": "2025-10-11 13:44:33",
+                        "orderItems": [],
+                        "items": []
+                    },
+                    {
+                        "order_Id": 5,
+                        "order_Customer_id": 3,
+                        "order_Order_number": "A5",
+                        "order_Total_amount": "1.00",
+                        "order_Status": "inactive",
+                        "order_Order_date": "2025-09-28",
+                        "order_Created_at": "2025-09-29 16:33:04",
+                        "order_Updated_at": "2025-10-01 13:58:00",
+                        "orderItems": [],
+                        "items": []
+                    },
+                    {
+                        "order_Id": 6,
+                        "order_Customer_id": 3,
+                        "order_Order_number": "A6",
+                        "order_Total_amount": "1.00",
+                        "order_Status": "inactive",
+                        "order_Order_date": "2025-09-28",
+                        "order_Created_at": "2025-09-29 16:33:04",
+                        "order_Updated_at": "2025-10-01 13:58:00",
+                        "orderItems": [],
+                        "items": []
+                    },
+                    {
+                        "order_Id": 7,
+                        "order_Customer_id": 3,
+                        "order_Order_number": "A7",
+                        "order_Total_amount": "1.00",
+                        "order_Status": "inactive",
+                        "order_Order_date": "2025-09-28",
+                        "order_Created_at": "2025-09-29 16:33:04",
+                        "order_Updated_at": "2025-10-01 13:58:00",
+                        "orderItems": [],
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "customer_Id": 4,
+                "customer_Country_id": 2,
+                "customer_Name": "Customer 4",
+                "customer_Email": "4@gmail.com",
+                "customer_Created_at": "2025-09-26 10:14:35",
+                "customer_Updated_at": "2025-10-01 13:57:16",
+                "orders": []
+            },
+            {
+                "customer_Id": 5,
+                "customer_Country_id": 3,
+                "customer_Name": "Customer 5",
+                "customer_Email": "5@gmail.com",
+                "customer_Created_at": "2025-10-01 13:57:01",
+                "customer_Updated_at": "2025-10-01 13:57:20",
+                "orders": []
+            }
+        ],
+        "error": "",
+        "message": "Items fetched successfully"
+    },
+    "error": null,
+    "message": null,
+    "data": null,
+    "status": "OK"
+}

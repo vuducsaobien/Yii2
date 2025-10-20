@@ -1,0 +1,84 @@
+Tóm tắt: Hiện tại:
+    1 Customer -> N Orders
+    1 Order -> N Items (Thông qua OrderItems)
+
+=> Sẽ làm 1 Customer -> N Items trong issue này.
+
+Customer table
+| customer_Id |
+|-------------|
+| 1           |
+| 2           |
+| 3           |
+| 4           |
+| 5           |
+
+Order table                             OrderItem table                                                 Item table
+| order_Id | order_Customer_Id |        |order_item_Id| order_item_Order_id | order_item_Item_id |      | item_Id |
+|----------|-------------------|        |-------------|---------------------|--------------------|      |---------|
+| 1        | 1                 |        | 1           | 1                   | 1                  |      | 1       |
+| 2        | 2                 |        | 2           | 1                   | 2                  |      | 2       |
+| 3        | 2                 |        | 3           | 2                   | 2                  |      | 3       |
+| 4        | 3                 |                                                                        | 4       |         
+| 5        | 3                 | 
+| 6        | 3                 | 
+| 7        | 3                 | 
+
+=> Customer Expect:
+    [
+        1: {
+            Order:[
+                {
+                    order_Id: 1,
+                    OrderItem:[
+                        {
+                            order_item_Id: 1
+                        },
+                        {
+                            order_item_Id: 2
+                        },
+                    ],
+                    Items:[
+                        {
+                            item_Id: 1
+                        },
+                        {
+                            item_Id: 2
+                        }
+                    ],
+                }
+            ]
+        },
+
+        2: {
+            Order:[
+                {
+                    order_Id: 2,
+                    OrderItem:[
+                        {
+                            order_item_Id: 3
+                        },
+                    ],
+                    Items:[
+                        {
+                            item_Id: 2
+                        }
+                    ],
+                },
+                {
+                    order_Id: 3,
+                    OrderItem:[
+                    ],
+                    Items:[
+                    ],
+                }
+            ]
+        },
+    ]
+
+=> Query thực tế:
+SELECT * FROM `customer`
+SELECT * FROM `order` WHERE `order_Customer_id` IN (1, 2, 3, 4, 5)
+SELECT * FROM `order_items` WHERE `order_item_Order_id` IN (1, 2, 3, 4, 5, 6, 7)
+SELECT * FROM `items` WHERE `item_Id` IN (1, 2)
+

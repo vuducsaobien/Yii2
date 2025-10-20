@@ -26,4 +26,14 @@ class CustomerController extends BaseController
         $this->res->status = ApiConstant::STATUS_OK;
         return $this->res->build();
     }
+
+    public function actionGetItems()
+    {
+        $data = $this->customerService->getItems();
+        $this->res->data = $data;
+        $this->res->message = 'Items fetched successfully';
+        $this->res->status = ApiConstant::STATUS_OK;
+        return $this->res->build();
+    }
+
 }
