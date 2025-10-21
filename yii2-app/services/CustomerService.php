@@ -41,7 +41,7 @@ class CustomerService extends BaseService
         return $this->customerModel::find()->withCustomRelation($relations)->all();
     }
    
-    public function getItems(): array
+    public function getItemsViaOrder(): array
     {   
         // eager loading with nested relations
         return $this->customerModel::find()->with(['orders.items'])->asArray()->all();

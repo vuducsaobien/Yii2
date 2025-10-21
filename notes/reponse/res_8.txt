@@ -1,4 +1,4 @@
-http://localhost:8080/customer/get-items
+http://localhost:8080/customer/get-items-via-order
 {
     "result": {
         "status": "OK",
