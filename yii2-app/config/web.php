@@ -1,5 +1,14 @@
 <?php
 
+// Load helpers
+require_once __DIR__ . '/helpers.php';
+
+// Define constants from environment
+defined('YII_DEBUG') or define('YII_DEBUG', env_bool('YII_DEBUG'));
+defined('YII_ENV') or define('YII_ENV', env('YII_ENV', 'dev'));
+defined('YII_ENV_DEV') or define('YII_ENV_DEV', YII_ENV === 'dev');
+defined('YII_ENV_PROD') or define('YII_ENV_PROD', YII_ENV === 'prod');
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -14,7 +23,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'tRO1zzmVL3p6jI_694kQcIgJ5n0NxTGV',
+            'cookieValidationKey' => env('APP_COOKIE_VALIDATION_KEY'),
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -29,8 +38,15 @@ $config = [
         'mailer' => [
             'class' => \yii\symfonymailer\Mailer::class,
             'viewPath' => '@app/mail',
-            // send all mails to a file by default.
-            'useFileTransport' => true,
+            'useFileTransport' => env('MAILER_TRANSPORT') === 'file',
+            'transport' => [
+                'class' => env('MAILER_TRANSPORT') === 'smtp' ? \Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport::class : \Symfony\Component\Mailer\Transport\NullTransport::class,
+                'host' => env('MAILER_HOST'),
+                'port' => env_int('MAILER_PORT'),
+                'username' => env('MAILER_USERNAME'),
+                'password' => env('MAILER_PASSWORD'),
+                'encryption' => env('MAILER_ENCRYPTION'),
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

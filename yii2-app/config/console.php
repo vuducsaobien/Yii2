@@ -1,5 +1,14 @@
 <?php
 
+// Load helpers
+require_once __DIR__ . '/helpers.php';
+
+// Define constants from environment
+defined('YII_DEBUG') or define('YII_DEBUG', env_bool('YII_DEBUG'));
+defined('YII_ENV') or define('YII_ENV', env('YII_ENV', 'dev'));
+defined('YII_ENV_DEV') or define('YII_ENV_DEV', YII_ENV === 'dev');
+defined('YII_ENV_PROD') or define('YII_ENV_PROD', YII_ENV === 'prod');
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 

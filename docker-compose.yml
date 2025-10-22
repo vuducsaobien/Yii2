@@ -10,11 +10,12 @@ services:
     volumes:
       - ./yii2-app:/var/www/html/yii2-app
       - mysql_data:/var/lib/mysql
+    env_file:
+      - ./yii2-app/app.env
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=yii2db
-      - MYSQL_USER=yii2user
-      - MYSQL_PASSWORD=yii2pass
+      # Override for Docker
+      - DB_HOST=localhost
+      - DOCKER_ENV=1
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
