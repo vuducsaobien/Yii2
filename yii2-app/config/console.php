@@ -17,6 +17,8 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
+    'timeZone' => 'Asia/Ho_Chi_Minh',
+    // 'timeZone' => 'UTC',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -35,6 +37,16 @@ $config = [
             ],
         ],
         'db' => $db,
+        'mailer' => [
+            'class' => \yii\symfonymailer\Mailer::class,
+            'viewPath' => '@app/mail',
+            'useFileTransport' => env('MAILER_TRANSPORT') === 'file',
+            'transport' => [
+                'dsn' => env('MAILER_TRANSPORT') === 'smtp' 
+                    ? 'smtp://' . env('MAILER_USERNAME') . ':' . env('MAILER_PASSWORD') . '@' . env('MAILER_HOST') . ':' . env_int('MAILER_PORT')
+                    : 'null://null',
+            ],
+        ],
     ],
     'params' => $params,
     /*

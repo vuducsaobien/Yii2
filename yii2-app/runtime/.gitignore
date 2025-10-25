@@ -1,2 +1,5 @@
 *
 !.gitignore
+!logs/
+!logs/custom/
+!logs/custom/*

@@ -1,0 +1,16 @@
+http://localhost:8080/test/time-zone
+'timeZone' => 'Asia/Ho_Chi_Minh',
+    "result": {
+        "status": "OK",
+        "data": "",
+        "error": "",
+        "message": "Current time: 2025-10-25 11:33:31"
+    },
+    
+'timeZone' => 'UTC',
+    "result": {
+        "status": "OK",
+        "data": "",
+        "error": "",
+        "message": "Current time: 2025-10-25 04:34:26"
+    },
