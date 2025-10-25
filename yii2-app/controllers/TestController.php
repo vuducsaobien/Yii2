@@ -22,4 +22,19 @@ class TestController extends BaseController
             return $this->res->build();
         }
     }
+
+    public function actionWriteLog()
+    {
+        try {
+            writeLog('DUCCC');
+            $this->res->message = 'Log written successfully';
+            $this->res->status = ApiConstant::STATUS_OK;
+            return $this->res->build();
+        } catch (Exception $e) {
+            $this->res->message = 'Error Write Log: ' . $e->getMessage();
+            $this->res->error = $e->getTraceAsString();
+            $this->res->status = ApiConstant::STATUS_FAIL;
+            return $this->res->build();
+        }
+    }
 }
