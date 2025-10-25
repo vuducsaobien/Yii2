@@ -42,12 +42,9 @@ $config = [
             'viewPath' => '@app/mail',
             'useFileTransport' => env('MAILER_TRANSPORT') === 'file',
             'transport' => [
-                'class' => env('MAILER_TRANSPORT') === 'smtp' ? \Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport::class : \Symfony\Component\Mailer\Transport\NullTransport::class,
-                'host' => env('MAILER_HOST'),
-                'port' => env_int('MAILER_PORT'),
-                'username' => env('MAILER_USERNAME'),
-                'password' => env('MAILER_PASSWORD'),
-                'encryption' => env('MAILER_ENCRYPTION'),
+                'dsn' => env('MAILER_TRANSPORT') === 'smtp' 
+                    ? 'smtp://' . env('MAILER_USERNAME') . ':' . env('MAILER_PASSWORD') . '@' . env('MAILER_HOST') . ':' . env_int('MAILER_PORT')
+                    : 'null://null',
             ],
         ],
         'log' => [
@@ -70,6 +67,9 @@ $config = [
         ],
         'itemService' => [
             'class' => 'app\services\ItemService',
+        ],
+        'mailService' => [
+            'class' => 'app\services\MailService',
         ],
         //
         'urlManager' => [

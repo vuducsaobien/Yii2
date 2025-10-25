@@ -8,6 +8,6 @@
 
 $this->beginPage();
 $this->beginBody();
-echo $content;
+echo $content . ' - text';
 $this->endBody();
 $this->endPage();
