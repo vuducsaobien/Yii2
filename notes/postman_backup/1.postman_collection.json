@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "40d21c61-4a8e-4e80-9a9d-9ed454aa7f9d",
+		"name": "Learn Yii2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18938227"
+	},
+	"item": [
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "via table",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/order/via-table",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"via-table"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "via",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/order/via",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"via"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Item",
+			"item": [
+				{
+					"name": "via",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/item/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"item",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "timezone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/test/time-zone",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"test",
+								"time-zone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "write log",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/test/write-log",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"test",
+								"write-log"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mail",
+			"item": [
+				{
+					"name": "send",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/mail/send",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"mail",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/index",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"index"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "asArray",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/customer/index",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										"index"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Oct 2025 14:08:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "68ee595d0c0a3"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "28"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/debug/default/view?tag=68ee595d0c0a3"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"status\": \"OK\",\n        \"data\": [\n            {\n                \"customer_Id\": 1,\n                \"customer_Country_id\": 1,\n                \"customer_Name\": \"Customer 1\",\n                \"customer_Email\": \"1@gmail.com\",\n                \"customer_Created_at\": \"2025-09-26 10:14:05\",\n                \"customer_Updated_at\": \"2025-10-01 13:57:16\",\n                \"orders\": [\n                    {\n                        \"order_Id\": 1,\n                        \"order_Customer_id\": 1,\n                        \"order_Order_number\": \"A1\",\n                        \"order_Total_amount\": \"2.00\",\n                        \"order_Status\": \"pending\",\n                        \"order_Order_date\": \"2025-09-29\",\n                        \"order_Created_at\": \"2025-09-29 16:32:44\",\n                        \"order_Updated_at\": \"2025-09-29 16:32:44\"\n                    }\n                ]\n            },\n            {\n                \"customer_Id\": 2,\n                \"customer_Country_id\": 1,\n                \"customer_Name\": \"Customer 2\",\n                \"customer_Email\": \"2@gmail.com\",\n                \"customer_Created_at\": \"2025-09-26 10:14:05\",\n                \"customer_Updated_at\": \"2025-10-01 13:57:16\",\n                \"orders\": [\n                    {\n                        \"order_Id\": 2,\n                        \"order_Customer_id\": 2,\n                        \"order_Order_number\": \"A2\",\n                        \"order_Total_amount\": \"3.00\",\n                        \"order_Status\": \"pending\",\n                        \"order_Order_date\": \"2025-09-28\",\n                        \"order_Created_at\": \"2025-09-29 16:33:04\",\n                        \"order_Updated_at\": \"2025-10-11 13:44:33\"\n                    },\n                    {\n                        \"order_Id\": 3,\n                        \"order_Customer_id\": 2,\n                        \"order_Order_number\": \"A3\",\n                        \"order_Total_amount\": \"2.00\",\n                        \"order_Status\": \"order\",\n                        \"order_Order_date\": \"2025-09-29\",\n                        \"order_Created_at\": \"2025-09-29 16:32:44\",\n                        \"order_Updated_at\": \"2025-10-11 13:44:33\"\n                    }\n                ]\n            },\n            {\n                \"customer_Id\": 3,\n                \"customer_Country_id\": 1,\n                \"customer_Name\": \"Customer 3\",\n                \"customer_Email\": \"3@gmail.com\",\n                \"customer_Created_at\": \"2025-09-26 10:14:35\",\n                \"customer_Updated_at\": \"2025-10-01 13:57:16\",\n                \"orders\": [\n                    {\n                        \"order_Id\": 4,\n                        \"order_Customer_id\": 3,\n                        \"order_Order_number\": \"A4\",\n                        \"order_Total_amount\": \"3.00\",\n                        \"order_Status\": \"active\",\n                        \"order_Order_date\": \"2025-09-28\",\n                        \"order_Created_at\": \"2025-09-29 16:33:04\",\n                        \"order_Updated_at\": \"2025-10-11 13:44:33\"\n                    },\n                    {\n                        \"order_Id\": 5,\n                        \"order_Customer_id\": 3,\n                        \"order_Order_number\": \"A5\",\n                        \"order_Total_amount\": \"1.00\",\n                        \"order_Status\": \"inactive\",\n                        \"order_Order_date\": \"2025-09-28\",\n                        \"order_Created_at\": \"2025-09-29 16:33:04\",\n                        \"order_Updated_at\": \"2025-10-01 13:58:00\"\n                    },\n                    {\n                        \"order_Id\": 6,\n                        \"order_Customer_id\": 3,\n                        \"order_Order_number\": \"A6\",\n                        \"order_Total_amount\": \"1.00\",\n                        \"order_Status\": \"inactive\",\n                        \"order_Order_date\": \"2025-09-28\",\n                        \"order_Created_at\": \"2025-09-29 16:33:04\",\n                        \"order_Updated_at\": \"2025-10-01 13:58:00\"\n                    },\n                    {\n                        \"order_Id\": 7,\n                        \"order_Customer_id\": 3,\n                        \"order_Order_number\": \"A7\",\n                        \"order_Total_amount\": \"1.00\",\n                        \"order_Status\": \"inactive\",\n                        \"order_Order_date\": \"2025-09-28\",\n                        \"order_Created_at\": \"2025-09-29 16:33:04\",\n                        \"order_Updated_at\": \"2025-10-01 13:58:00\"\n                    }\n                ]\n            },\n            {\n                \"customer_Id\": 4,\n                \"customer_Country_id\": 2,\n                \"customer_Name\": \"Customer 4\",\n                \"customer_Email\": \"4@gmail.com\",\n                \"customer_Created_at\": \"2025-09-26 10:14:35\",\n                \"customer_Updated_at\": \"2025-10-01 13:57:16\",\n                \"orders\": []\n            },\n            {\n                \"customer_Id\": 5,\n                \"customer_Country_id\": 3,\n                \"customer_Name\": \"Customer 5\",\n                \"customer_Email\": \"5@gmail.com\",\n                \"customer_Created_at\": \"2025-10-01 13:57:01\",\n                \"customer_Updated_at\": \"2025-10-01 13:57:20\",\n                \"orders\": []\n            }\n        ],\n        \"error\": \"\",\n        \"message\": \"Customers fetched successfully\"\n    },\n    \"error\": null,\n    \"message\": null,\n    \"data\": null,\n    \"status\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Custom relation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/with-custom-relations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"with-custom-relations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Items via order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/get-items-via-order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"get-items-via-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/get-items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"get-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Items via table",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/get-items-via-table",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"get-items-via-table"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
