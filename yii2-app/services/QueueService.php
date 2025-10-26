@@ -25,6 +25,10 @@ class QueueService extends BaseService
     public function checkStatus($jobId, $driver, $type)
     {
         try {
+            if ($driver == QueueDriverEnums::SYNCHRONOUS) {
+                throw new Exception('Driver synchronous cannot check status');
+            }
+
             return Yii::$app->queue->{$type}($jobId);
         } catch (Exception $e) {
             throw new Exception('Error check status - service: ' . $e->getMessage());
