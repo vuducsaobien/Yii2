@@ -12,7 +12,7 @@ class MailService extends BaseService
         try {
             $message = Yii::$app->mailer->compose(
                 ['html' => 'layouts/html', 'text' => 'layouts/text'],
-                ['content' => '1 - This is a test email sent at ' . $now]
+                ['content' => '2 - This is a test email sent at ' . $now]
             )
             ->setFrom([env('MAILER_USERNAME') => env('MAILER_FROM_NAME')])
             ->setTo($to)
@@ -20,12 +20,15 @@ class MailService extends BaseService
             // ->setTextBody('This is a test email sent at ' . $now);
 
             if ($message->send()) {
+                writeLog('Email sent successfully at ' . $now);
                 return true;
             } else {
                 return false;
             }
         } catch (Exception $e) {
             throw new Exception('Error send mail - service: ' . $e->getMessage());
+            writeLog('Error send mail - service: ' . $e->getMessage());
+            writeLog('Error send mail - service: ' . $e->getTraceAsString());
         }
     }
 }

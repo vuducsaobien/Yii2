@@ -77,6 +77,66 @@
 			]
 		},
 		{
+			"name": "Queue",
+			"item": [
+				{
+					"name": "Driver Syncronous",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/queue/driver-syncronous",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"queue",
+								"driver-syncronous"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/queue/check-status?jobId=1&type=isDone",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"queue",
+								"check-status"
+							],
+							"query": [
+								{
+									"key": "jobId",
+									"value": "1"
+								},
+								{
+									"key": "driver",
+									"value": "sad",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "isDone"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Test",
 			"item": [
 				{

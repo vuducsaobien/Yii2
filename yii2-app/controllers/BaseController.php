@@ -8,6 +8,7 @@ use app\services\CustomerService;
 use app\services\OrderService;
 use app\services\ItemService;
 use app\services\MailService;
+use app\services\QueueService;
 use app\common\helper\response\ResponseHelper;
 class BaseController extends Controller
 {
@@ -32,6 +33,11 @@ class BaseController extends Controller
     protected $mailService;
 
     /**
+     * @var QueueService
+     */
+    protected $queueService;
+
+    /**
      * @var ResponseHelper
      */
     protected $res;
@@ -44,5 +50,6 @@ class BaseController extends Controller
         $this->orderService = Yii::$app->orderService;
         $this->itemService = Yii::$app->itemService;
         $this->mailService = Yii::$app->mailService;
+        $this->queueService = Yii::$app->queueService;
     }
 }

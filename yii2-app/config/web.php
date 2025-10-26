@@ -23,6 +23,10 @@ $config = [
     'timeZone' => 'Asia/Ho_Chi_Minh',
     // 'timeZone' => 'UTC',
     'components' => [
+        'queue' => [
+            'class' => \yii\queue\sync\Queue::class,
+            'handle' => true, // if tasks should be executed immediately
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => env('APP_COOKIE_VALIDATION_KEY'),
@@ -40,7 +44,7 @@ $config = [
         'mailer' => [
             'class' => \yii\symfonymailer\Mailer::class,
             'viewPath' => '@app/mail',
-            'useFileTransport' => env('MAILER_TRANSPORT') === 'file',
+            'useFileTransport' => false, // Always send real emails
             'transport' => [
                 'dsn' => env('MAILER_TRANSPORT') === 'smtp' 
                     ? 'smtp://' . env('MAILER_USERNAME') . ':' . env('MAILER_PASSWORD') . '@' . env('MAILER_HOST') . ':' . env_int('MAILER_PORT')
@@ -70,6 +74,9 @@ $config = [
         ],
         'mailService' => [
             'class' => 'app\services\MailService',
+        ],
+        'queueService' => [
+            'class' => 'app\services\QueueService',
         ],
         //
         'urlManager' => [

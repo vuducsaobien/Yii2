@@ -5,9 +5,16 @@ namespace app\controllers;
 use app\common\helper\response\ApiConstant;
 use app\controllers\BaseController;
 use Exception;
+use Yii;
 class MailController extends BaseController
 {
-    public $to = 'vuducsaobien95@gmail.com';
+    public $to;
+
+    public function init()
+    {
+        parent::init();
+        $this->to = env('MAILER_TO');
+    }
 
     public function actionSend()
     {

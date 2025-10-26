@@ -83,7 +83,7 @@ if (!function_exists('is_development')) {
 }
 
 if (!function_exists('writeLog')) {
-    function writeLog($message, $file = 'custom_log.log'): void
+    function writeLog($message, $file = 'email_log.log'): void
     {
         try {            
             // Convert message to string safely
