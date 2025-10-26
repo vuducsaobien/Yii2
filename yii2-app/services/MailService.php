@@ -20,9 +20,10 @@ class MailService extends BaseService
             // ->setTextBody('This is a test email sent at ' . $now);
 
             if ($message->send()) {
-                writeLog('Email sent successfully at ' . $now);
+                writeLog('MailService - Email sent successfully at ' . $now);
                 return true;
             } else {
+                writeLog('MailService - Email sent failed at ' . $now);
                 return false;
             }
         } catch (Exception $e) {

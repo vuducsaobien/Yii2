@@ -35,5 +35,18 @@ Các queue drive cung cấp trong Yii:
         ```
         => Kiểm tra 2 biến now, thấy gần như ngay lập tức (hoặc Queue thực hiện ngay lập tức)
 
+        ```php config/web.php || config/console.php
+            return [
+                'components' => [
+                    'queue' => [
+                        'class' => \yii\queue\sync\Queue::class,
+                        'handle' => false, // không chạy ngay lập tức
+                    ],
+                ],
+            ];
+        ```
+        => Mail chưa được gửi ngay lập tức, không thể dùng các hàm checkStatus để kiểm tra queue này được.
+        => Driver này thích hợp dùng để debug code (Vì nó chạy ngay lặp tức, không cần dùng file, db hay Redis gì cả)
+
 
 

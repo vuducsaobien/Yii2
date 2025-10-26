@@ -27,7 +27,7 @@ $config = [
     'components' => [
         'queue' => [
             'class' => \yii\queue\sync\Queue::class,
-            'handle' => true, // if tasks should be executed immediately
+            'handle' => false, // if tasks should be executed immediately
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

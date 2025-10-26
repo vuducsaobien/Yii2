@@ -25,7 +25,7 @@ $config = [
     'components' => [
         'queue' => [
             'class' => \yii\queue\sync\Queue::class,
-            'handle' => true, // if tasks should be executed immediately
+            'handle' => false, // if tasks should be executed immediately
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

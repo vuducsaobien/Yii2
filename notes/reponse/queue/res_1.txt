@@ -29,3 +29,44 @@ http://localhost:8080/queue/check-status
     yii\\web\\Application->handleRequest()\n#7 /var/www/html/yii2-app/web/index.php(18): yii\\base\\Application->run()\n#8 {main}",
     "message": "Error Queue check status: Error check status - service: Unknown messages ID: 1."
 }
+
+http://localhost:8080/queue/driver-syncronous
+{
+    "result": {
+        "status": "OK",
+        "data": {
+            "now": "2025-10-26 16:43:05",
+            "jobId": 1
+        },
+        "error": "",
+        "message": "Queue driver syncronous - executed successfully"
+    },
+    "error": null,
+    "message": null,
+    "data": null,
+    "status": "OK"
+}
+
+http://localhost:8080/queue/check-status?jobId=1&driver=sync&type=isWaiting
+{
+    "result": null,
+    "status": "FAIL",
+    "error": "#0 /var/www/html/yii2-app/controllers/QueueController.php(33): app\\services\\QueueService->checkStatus()\n#1 [internal function]: app\\controllers\\QueueController->actionCheckStatus()\n#2 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/InlineAction.php(60): call_user_func_array()\n#3 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/Controller.php(184): yii\\base\\InlineAction->runWithParams()\n#4 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/Module.php(555): yii\\base\\Controller->runAction()\n#5 /var/www/html/yii2-app/vendor/yiisoft/yii2/web/Application.php(103): yii\\base\\Module->runAction()\n#6 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/Application.php(387): yii\\web\\Application->handleRequest()\n#7 /var/www/html/yii2-app/web/index.php(18): yii\\base\\Application->run()\n#8 {main}",
+    "message": "Error Queue check status: Error check status - service: Unknown messages ID: 1."
+}
+
+http://localhost:8080/queue/check-status?jobId=1&driver=sync&type=isReserved
+{
+    "result": null,
+    "status": "FAIL",
+    "error": "#0 /var/www/html/yii2-app/controllers/QueueController.php(33): app\\services\\QueueService->checkStatus()\n#1 [internal function]: app\\controllers\\QueueController->actionCheckStatus()\n#2 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/InlineAction.php(60): call_user_func_array()\n#3 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/Controller.php(184): yii\\base\\InlineAction->runWithParams()\n#4 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/Module.php(555): yii\\base\\Controller->runAction()\n#5 /var/www/html/yii2-app/vendor/yiisoft/yii2/web/Application.php(103): yii\\base\\Module->runAction()\n#6 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/Application.php(387): yii\\web\\Application->handleRequest()\n#7 /var/www/html/yii2-app/web/index.php(18): yii\\base\\Application->run()\n#8 {main}",
+    "message": "Error Queue check status: Error check status - service: Unknown messages ID: 1."
+}
+
+http://localhost:8080/queue/check-status?jobId=1&driver=sync&type=isDone
+{
+    "result": null,
+    "status": "FAIL",
+    "error": "#0 /var/www/html/yii2-app/controllers/QueueController.php(33): app\\services\\QueueService->checkStatus()\n#1 [internal function]: app\\controllers\\QueueController->actionCheckStatus()\n#2 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/InlineAction.php(60): call_user_func_array()\n#3 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/Controller.php(184): yii\\base\\InlineAction->runWithParams()\n#4 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/Module.php(555): yii\\base\\Controller->runAction()\n#5 /var/www/html/yii2-app/vendor/yiisoft/yii2/web/Application.php(103): yii\\base\\Module->runAction()\n#6 /var/www/html/yii2-app/vendor/yiisoft/yii2/base/Application.php(387): yii\\web\\Application->handleRequest()\n#7 /var/www/html/yii2-app/web/index.php(18): yii\\base\\Application->run()\n#8 {main}",
+    "message": "Error Queue check status: Error check status - service: Unknown messages ID: 1."
+}
