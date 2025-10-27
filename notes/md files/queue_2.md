@@ -85,4 +85,10 @@ Link:
                     - delayed: 0
                     - reserved: 0
                     - done: 1
-        
+        Step 2: Remove all queue
+            docker exec yii2-learning php /var/www/html/yii2-app/yii queue/clear --interactive=0
+                Jobs
+                    - waiting: 0
+                    - delayed: 0
+                    - reserved: 0
+                    - done: 0
