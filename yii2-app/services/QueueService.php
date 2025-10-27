@@ -21,6 +21,19 @@ class QueueService extends BaseService
         }
     }
 
+    // Driver File - Push job to file queue
+    public function driverFile()
+    {
+        try {
+            $jobId = Yii::$app->queue->push(new SendMailJob([
+                'to' => env('MAILER_TO')
+            ]));
+            return $jobId;
+        } catch (Exception $e) {
+            throw new Exception('Error driver file - service: ' . $e->getMessage());
+        }
+    }
+
     // Check whether a worker has executed the job.
     public function checkStatus($jobId, $driver, $type)
     {

@@ -15,7 +15,10 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        // 'log'
+        'queue', // The component registers its own console commands
+    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -23,9 +26,13 @@ $config = [
     'timeZone' => 'Asia/Ho_Chi_Minh',
     // 'timeZone' => 'UTC',
     'components' => [
-        'queue' => [
-            'class' => \yii\queue\sync\Queue::class,
-            'handle' => false, // if tasks should be executed immediately
+        // 'queue' => [ // 1. Driver Synchronous
+        //     'class' => \yii\queue\sync\Queue::class,
+        //     'handle' => false, // if tasks should be executed immediately
+        // ],
+        'queue' => [ // 2. Driver File
+            'class' => \yii\queue\file\Queue::class,
+            'path' => '@runtime/queue',
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

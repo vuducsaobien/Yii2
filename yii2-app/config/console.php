@@ -15,7 +15,10 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        // 'log'
+        'queue', // The component registers its own console commands
+    ],
     'controllerNamespace' => 'app\commands',
     'timeZone' => 'Asia/Ho_Chi_Minh',
     // 'timeZone' => 'UTC',
@@ -25,9 +28,13 @@ $config = [
         '@tests' => '@app/tests',
     ],
     'components' => [
-        'queue' => [
-            'class' => \yii\queue\sync\Queue::class,
-            'handle' => false, // if tasks should be executed immediately
+        // 'queue' => [ // 1. Driver Synchronous
+        //     'class' => \yii\queue\sync\Queue::class,
+        //     'handle' => false, // if tasks should be executed immediately
+        // ],
+        'queue' => [ // 2. Driver File
+            'class' => \yii\queue\file\Queue::class,
+            'path' => '@runtime/queue',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
