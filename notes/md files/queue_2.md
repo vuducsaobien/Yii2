@@ -50,9 +50,28 @@ Link:
 
 => http://localhost:8080/queue/driver-file
 => trong /runtime xuất hiện 2 file index.data & job1.data
-    docker exec yii2-learning php /var/www/html/yii2-app/yii queue/info
-        Jobs
-        - waiting: 1
-        - delayed: 0
-        - reserved: 0
-        - done: 0
+
+    # Xem thông tin queue
+        docker exec yii2-learning php /var/www/html/yii2-app/yii queue/info
+            Jobs
+            - waiting: 1
+            - delayed: 0
+            - reserved: 0
+            - done: 0
+
+    # Chạy queue một lần (xử lý hết jobs)
+        docker exec yii2-learning php /var/www/html/yii2-app/yii queue/run --verbose
+        vuduc@MacBookAir Yii2 % docker exec yii2-learning php /var/www/html/yii2-app/yii queue/run --verbose
+            2025-10-27 23:19:48 [pid: 1518] - Worker is started
+            2025-10-27 23:19:48 [1] app\jobs\SendMailJob (attempt: 1, pid: 1518) - Started
+            2025-10-27 23:19:51 [1] app\jobs\SendMailJob (attempt: 1, pid: 1518) - Done (3.709 s, 6.28 MiB)
+            2025-10-27 23:19:52 [pid: 1518] - Worker is stopped (0:00:04)
+        
+            Nội dung email: 2 - This is a test email sent at 2025-10-27 23:19:48
+
+        docker exec yii2-learning php /var/www/html/yii2-app/yii queue/info
+            Jobs
+                - waiting: 0
+                - delayed: 0
+                - reserved: 0
+                - done: 1
