@@ -120,3 +120,16 @@ Link:
                 - delayed: 0
                 - reserved: 0
                 - done: 1
+
+        - php yii queue/listen
+            => Tiến hành gửi mail như bình thường, nếu xoá các file trong/runtime/queue thì lại gửi mail lại lần nữa,
+            Vì xoá file job2.data nghĩa là 1 job vẫn đang waiting, chờ thực hiện, nếu chạy que/listen thì nếu có job waiting,
+            thì nó sẽ tiến hành thực hiện job này luôn.
+            => Muốn dừng queue/listen thì down container (docker-compose down)
+
+            - docker exec yii2-learning php /var/www/html/yii2-app/yii queue/info
+                Jobs
+                    - waiting: 0
+                    - delayed: 0
+                    - reserved: 0
+                    - done: 2
