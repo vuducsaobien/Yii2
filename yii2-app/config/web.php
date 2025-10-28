@@ -107,6 +107,9 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         'allowedIPs' => ['*'], // Allow all IPs for development
+        'panels' => [
+            'queue' => \yii\queue\debug\Panel::class,
+        ],
     ];
 
     $config['bootstrap'][] = 'gii';
