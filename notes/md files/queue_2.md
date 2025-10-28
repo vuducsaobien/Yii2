@@ -76,7 +76,7 @@ Link:
                 - reserved: 0
                 - done: 1
 
-    Remove queue
+    # Remove all queue
         Step 1: Create queue
             http://localhost:8080/queue/driver-file
             docker exec yii2-learning php /var/www/html/yii2-app/yii queue/info
@@ -92,3 +92,13 @@ Link:
                     - delayed: 0
                     - reserved: 0
                     - done: 0
+    
+    # Remove 1 queue
+        Step 1: Create queue
+        http://localhost:8080/queue/driver-file
+        docker exec yii2-learning php /var/www/html/yii2-app/yii queue/info    
+            Jobs
+                - waiting: 1
+                - delayed: 0
+                - reserved: 0
+                - done: 0
