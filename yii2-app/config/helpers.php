@@ -81,3 +81,31 @@ if (!function_exists('is_development')) {
         return env('YII_ENV') === 'dev';
     }
 }
+
+if (!function_exists('writeLog')) {
+    function writeLog($message, $file = 'email_log.log'): void
+    {
+        try {            
+            // Convert message to string safely
+            if (is_array($message)) {
+                $message = json_encode($message, JSON_UNESCAPED_UNICODE);
+            } elseif (is_object($message)) {
+                $message = json_encode($message, JSON_UNESCAPED_UNICODE);
+            } elseif (!is_string($message)) {
+                $message = (string) $message;
+            }
+            
+            $logData = ['message' => $message];
+            $logMessage = json_encode($logData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n";
+            $logFile = Yii::getAlias('@runtime/logs/custom/' . $file);
+            
+            // Ensure log directory exists
+            $logDir = dirname($logFile);
+            if (!is_dir($logDir)) mkdir($logDir, 0755, true);
+            file_put_contents($logFile, $logMessage, FILE_APPEND | LOCK_EX);
+        } catch (\Exception $e) {
+            // Log the error but don't throw it to avoid breaking the main operation
+            Yii::error('Error logging custom message: ' . $e->getMessage());
+        }
+    }
+}

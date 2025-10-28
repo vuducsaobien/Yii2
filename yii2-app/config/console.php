@@ -15,14 +15,27 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        // 'log'
+        'queue', // The component registers its own console commands
+    ],
     'controllerNamespace' => 'app\commands',
+    'timeZone' => 'Asia/Ho_Chi_Minh',
+    // 'timeZone' => 'UTC',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
         '@tests' => '@app/tests',
     ],
     'components' => [
+        // 'queue' => [ // 1. Driver Synchronous
+        //     'class' => \yii\queue\sync\Queue::class,
+        //     'handle' => false, // if tasks should be executed immediately
+        // ],
+        'queue' => [ // 2. Driver File
+            'class' => \yii\queue\file\Queue::class,
+            'path' => '@runtime/queue',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -35,6 +48,22 @@ $config = [
             ],
         ],
         'db' => $db,
+        'mailer' => [
+            'class' => \yii\symfonymailer\Mailer::class,
+            'viewPath' => '@app/mail',
+            'useFileTransport' => false, // Always send real emails
+            'transport' => [
+                'dsn' => env('MAILER_TRANSPORT') === 'smtp' 
+                    ? 'smtp://' . env('MAILER_USERNAME') . ':' . env('MAILER_PASSWORD') . '@' . env('MAILER_HOST') . ':' . env_int('MAILER_PORT')
+                    : 'null://null',
+            ],
+        ],
+        'mailService' => [
+            'class' => 'app\services\MailService',
+        ],
+        'queueService' => [
+            'class' => 'app\services\QueueService',
+        ],
     ],
     'params' => $params,
     /*
@@ -59,6 +88,9 @@ if (YII_ENV_DEV) {
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
+        'panels' => [
+            'queue' => \yii\queue\debug\Panel::class,
+        ],
     ];
 }
 

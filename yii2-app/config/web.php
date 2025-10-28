@@ -15,12 +15,25 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        // 'log'
+        'queue', // The component registers its own console commands
+    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'timeZone' => 'Asia/Ho_Chi_Minh',
+    // 'timeZone' => 'UTC',
     'components' => [
+        // 'queue' => [ // 1. Driver Synchronous
+        //     'class' => \yii\queue\sync\Queue::class,
+        //     'handle' => false, // if tasks should be executed immediately
+        // ],
+        'queue' => [ // 2. Driver File
+            'class' => \yii\queue\file\Queue::class,
+            'path' => '@runtime/queue',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => env('APP_COOKIE_VALIDATION_KEY'),
@@ -38,14 +51,11 @@ $config = [
         'mailer' => [
             'class' => \yii\symfonymailer\Mailer::class,
             'viewPath' => '@app/mail',
-            'useFileTransport' => env('MAILER_TRANSPORT') === 'file',
+            'useFileTransport' => false, // Always send real emails
             'transport' => [
-                'class' => env('MAILER_TRANSPORT') === 'smtp' ? \Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport::class : \Symfony\Component\Mailer\Transport\NullTransport::class,
-                'host' => env('MAILER_HOST'),
-                'port' => env_int('MAILER_PORT'),
-                'username' => env('MAILER_USERNAME'),
-                'password' => env('MAILER_PASSWORD'),
-                'encryption' => env('MAILER_ENCRYPTION'),
+                'dsn' => env('MAILER_TRANSPORT') === 'smtp' 
+                    ? 'smtp://' . env('MAILER_USERNAME') . ':' . env('MAILER_PASSWORD') . '@' . env('MAILER_HOST') . ':' . env_int('MAILER_PORT')
+                    : 'null://null',
             ],
         ],
         'log' => [
@@ -69,6 +79,12 @@ $config = [
         'itemService' => [
             'class' => 'app\services\ItemService',
         ],
+        'mailService' => [
+            'class' => 'app\services\MailService',
+        ],
+        'queueService' => [
+            'class' => 'app\services\QueueService',
+        ],
         //
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -91,6 +107,9 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         'allowedIPs' => ['*'], // Allow all IPs for development
+        'panels' => [
+            'queue' => \yii\queue\debug\Panel::class,
+        ],
     ];
 
     $config['bootstrap'][] = 'gii';

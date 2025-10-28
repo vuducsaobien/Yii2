@@ -1,0 +1,2 @@
+http://localhost:8080/test/write-log
+=> Ghi lgo vào file app/runtime/logs/custom/custom_log.log
