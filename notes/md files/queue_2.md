@@ -111,3 +111,12 @@ Link:
                 - reserved: 0
                 - done: 1
 
+        http://localhost:8080/queue/driver-file
+        - docker exec -it yii2-learning bash
+        - cd yii2-app/
+        - php yii queue/info
+            Jobs
+                - waiting: 1
+                - delayed: 0
+                - reserved: 0
+                - done: 1

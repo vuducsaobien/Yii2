@@ -31,3 +31,20 @@ http://localhost:8080/queue/driver-file
     "data": null,
     "status": "OK"
 }
+
+http://localhost:8080/queue/driver-file
+{
+    "result": {
+        "status": "OK",
+        "data": {
+            "now": "2025-10-28 22:05:17",
+            "jobId": 2
+        },
+        "error": "",
+        "message": "Queue driver file - executed successfully"
+    },
+    "error": null,
+    "message": null,
+    "data": null,
+    "status": "OK"
+}
