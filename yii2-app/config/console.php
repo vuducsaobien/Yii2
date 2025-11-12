@@ -64,6 +64,14 @@ $config = [
         'queueService' => [
             'class' => 'app\services\QueueService',
         ],
+        'blockExplorerComponent' => [
+            'class' => 'app\components\BlockExplorerComponent',
+            'url' => env('BLOCK_EXPLORER_URL'),
+            'token' => env('BLOCK_EXPLORER_TOKEN'),
+        ],
+        'blockExplorerService' => [
+            'class' => 'app\services\BlockExplorerService',
+        ],
     ],
     'params' => $params,
     /*

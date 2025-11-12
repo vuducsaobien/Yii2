@@ -86,17 +86,25 @@ if (!function_exists('writeLog')) {
     function writeLog($message, $file = 'email_log.log'): void
     {
         try {            
-            // Convert message to string safely
-            if (is_array($message)) {
-                $message = json_encode($message, JSON_UNESCAPED_UNICODE);
-            } elseif (is_object($message)) {
-                $message = json_encode($message, JSON_UNESCAPED_UNICODE);
-            } elseif (!is_string($message)) {
+            // Normalize complex message types without losing structure
+            if (is_object($message)) {
+                if ($message instanceof \JsonSerializable) {
+                    $message = $message->jsonSerialize();
+                } elseif (method_exists($message, 'toArray')) {
+                    $message = $message->toArray();
+                } else {
+                    $message = json_decode(json_encode($message, JSON_UNESCAPED_UNICODE), true);
+                }
+            } elseif (is_resource($message)) {
+                $message = sprintf('resource(%s)', get_resource_type($message));
+            }
+
+            if (!is_array($message) && !is_scalar($message) && $message !== null) {
                 $message = (string) $message;
             }
             
             $logData = ['message' => $message];
-            $logMessage = json_encode($logData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n";
+            $logMessage = json_encode($logData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . "\n";
             $logFile = Yii::getAlias('@runtime/logs/custom/' . $file);
             
             // Ensure log directory exists
@@ -107,5 +115,12 @@ if (!function_exists('writeLog')) {
             // Log the error but don't throw it to avoid breaking the main operation
             Yii::error('Error logging custom message: ' . $e->getMessage());
         }
+    }
+}
+
+if (!function_exists('covnertSatoShiToBTC')) {
+    function covnertSatoShiToBTC(int $satoshi): float
+    {
+        return $satoshi / 100000000;
     }
 }

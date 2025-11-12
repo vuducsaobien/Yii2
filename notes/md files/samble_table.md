@@ -38,3 +38,22 @@ Order table         OrderItem table                                             
 | 3           |
 | 4           |
 | 5           |
+
+
+| Loại       | Tên gọi              | Cách chạy                                           | Ví dụ lệnh                                         | Khi chạy xong thì sao                 |
+|------------|----------------------|-----------------------------------------------------|----------------------------------------------------|---------------------------------------|
+| Foreground | (Chạy ở “tiền cảnh”) | Container chiếm terminal, bạn thấy output trực tiếp | `docker run nginx` hoặc `docker run -it alpine sh` | Container dừng khi bạn thoát terminal |
+| Background | (Chạy ở “hậu cảnh”)  | Container chạy ngầm, không chiếm terminal           | `docker run -d nginx`                              | Container tiếp tục chạy, kể cả khi bạn đóng terminal |
+
+
+
+| Loại         | Tên gọi                | Cách chạy                                   | Ví dụ lệnh                        | Khi chạy xong thì sao                   |
+|--------------|------------------------|---------------------------------------------|-----------------------------------|-----------------------------------------|
+| Foreground   | (Chạy ở “tiền cảnh”)   | Container chiếm terminal                    | `docker run nginx`                | Container dừng khi bạn thoát terminal   |
+|              |                        | , bạn thấy output trực tiếp                 | hoặc `docker run -it alpine sh`   |                                         |
+| ------------ | ---------------------- | ------------------------------------------- | --------------------------------- | --------------------------------------- |
+| Background   | (Chạy ở “hậu cảnh”)    | Container chạy ngầm, không chiếm terminal   | `docker run -d nginx`             | Container tiếp tục chạy,                |
+|              |                        | , bạn thấy output trực tiếp                 | hoặc `docker run -it alpine sh`   | kể cả khi bạn đóng                      |
+|--------------|------------------------|---------------------------------------------|-----------------------------------|-----------------------------------------|
+
+

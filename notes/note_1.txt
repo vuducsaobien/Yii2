@@ -36,3 +36,6 @@ Dump Database file Dbeaver:
     => docker exec -it yii2-learning bash
     => cd yii2-app/
     => mysql -u root -p123456 -e "CREATE DATABASE IF NOT EXISTS yii2db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
+    Docker. Fix app.env
+        DB_HOST=mysql

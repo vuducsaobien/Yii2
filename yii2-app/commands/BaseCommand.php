@@ -1,9 +1,9 @@
 <?php
 
-namespace app\controllers;
+namespace app\commands;
 
 use Yii;
-use yii\web\Controller;
+use yii\console\Controller;
 use app\services\CustomerService;
 use app\services\OrderService;
 use app\services\ItemService;
@@ -12,32 +12,33 @@ use app\services\QueueService;
 use app\services\BlockExplorerService;
 use app\common\helper\response\ResponseHelper;
 use app\components\BlockExplorerComponent;
-class BaseController extends Controller
+
+class BaseCommand extends Controller
 {
-    /**
-     * @var CustomerService
-     */
-    protected $customerService;
+    // /**
+    //  * @var CustomerService
+    //  */
+    // protected $customerService;
     
-    /**
-     * @var OrderService
-     */
-    protected $orderService;
+    // /**
+    //  * @var OrderService
+    //  */
+    // protected $orderService;
 
-    /**
-     * @var ItemService
-     */
-    protected $itemService;
+    // /**
+    //  * @var ItemService
+    //  */
+    // protected $itemService;
 
-    /**
-     * @var MailService
-     */
-    protected $mailService;
+    // /**
+    //  * @var MailService
+    //  */
+    // protected $mailService;
 
-    /**
-     * @var QueueService
-     */
-    protected $queueService;
+    // /**
+    //  * @var QueueService
+    //  */
+    // protected $queueService;
 
     /**
      * @var BlockExplorerService
@@ -58,11 +59,11 @@ class BaseController extends Controller
     {
         parent::init();
         $this->res = new ResponseHelper();
-        $this->customerService = Yii::$app->customerService;
-        $this->orderService = Yii::$app->orderService;
-        $this->itemService = Yii::$app->itemService;
-        $this->mailService = Yii::$app->mailService;
-        $this->queueService = Yii::$app->queueService;
+        // $this->customerService = Yii::$app->customerService;
+        // $this->orderService = Yii::$app->orderService;
+        // $this->itemService = Yii::$app->itemService;
+        // $this->mailService = Yii::$app->mailService;
+        // $this->queueService = Yii::$app->queueService;
         $this->blockExplorerService = Yii::$app->blockExplorerService;
 
         $this->blockExplorerComponent = Yii::$app->blockExplorerComponent;

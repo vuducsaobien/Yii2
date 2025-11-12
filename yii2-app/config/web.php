@@ -40,6 +40,7 @@ $config = [
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
+            'cachePath' => '@runtime/cache', // Path to save cache files
         ],
         'user' => [
             'identityClass' => 'app\models\User',
@@ -85,6 +86,9 @@ $config = [
         'queueService' => [
             'class' => 'app\services\QueueService',
         ],
+        'blockExplorerService' => [
+            'class' => 'app\services\BlockExplorerService',
+        ],
         //
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -96,6 +100,11 @@ $config = [
         'response' => [
             'class' => 'yii\web\Response',
             'format' => \yii\web\Response::FORMAT_JSON,
+        ],
+        'blockExplorerComponent' => [
+            'class' => 'app\components\BlockExplorerComponent',
+            'url' => env('BLOCK_EXPLORER_URL'),
+            'token' => env('BLOCK_EXPLORER_TOKEN'),
         ],
     ],
     'params' => $params,
