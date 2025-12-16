@@ -1,0 +1,29 @@
+- Vẽ sơ đồ diagram bằng
+    https://app.diagrams.net
+    https://app.diagrams.net/#G1j7JzhpWLZgD5BeYz1IdL_S5bNLVEhzJ6#%7B%22pageId%22%3A%22R2lEEEUBdFMjLlhIrx00%22%7D
+- Ví dụ về Case lồng mối quan hệ 
+    (1 Order có nhiều Items, mà trong 1 Items lại có nhiều Orders)
+
+- Setup timeout 5s cho 1 API để thấy bị lồng mối quan hệ 
+
+- http://localhost:8080/debug/default/index (Xem log)
+    - API http://localhost:8080/item/list
+    1. SELECT * FROM `order_items` WHERE `order_item_Item_id` IN (1, 2, 3, 4)
+        /var/www/html/yii2-app/services/ItemService.php:10
+        /var/www/html/yii2-app/controllers/ItemController.php:12
+
+    2. SELECT * FROM `order` WHERE `order_Id` IN (1, 2)
+        /var/www/html/yii2-app/services/ItemService.php:10
+        /var/www/html/yii2-app/controllers/ItemController.php:12
+    
+    3. SELECT * FROM `order_items` WHERE `order_item_Order_id`=1
+    4. SELECT * FROM `items` WHERE `item_Id` IN (1, 2)
+    5. SELECT * FROM `order_items` WHERE `order_item_Item_id`=1
+    6. SELECT * FROM `order` WHERE `order_Id`=1
+
+    7. SELECT * FROM `order_items` WHERE `order_item_Order_id`=1
+    8. SELECT * FROM `items` WHERE `item_Id` IN (1, 2)
+    9. SELECT * FROM `order_items` WHERE `order_item_Item_id`=1
+    10. SELECT * FROM `order` WHERE `order_Id`=1
+
+    ...
